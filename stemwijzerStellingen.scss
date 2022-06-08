@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    position: relative;
+}
+
+header {
+    margin: 0 auto;
+    height: auto;
+
+    .process_indicator {
+        background-color: #233fff;
+        height: 7px;
+        margin-bottom: 10px;
+        width: 3.03%;
+    }
+
+    .header_sides {
+        display: flex;
+        flex-direction: row;
+        display: inline-block;
+        height: fit-content;
+    }
+
+
+    .left_side {
+        position: relative;
+        margin-left: 20px;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .fa-arrow-left {
+            font-size: 30px;
+            border-radius: 50%;
+            background-color: #e7eaeb;
+            padding: 10px;
+        }
+
+        #stemwijzerLogo {
+            height: 32px;
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: 60px;
+        }
+    }
+
+    .right_side {
+        float: right;
+        margin: 10px 20px 0px 0px;
+
+        #topLogo {
+            margin-left: 20px;
+            height: 15px;
+        }
+
+        #vraag_nummer {
+            display: inline;
+            border: 1px solid #e7eaeb;
+            border-radius: 80px;
+            padding: 8px 12px;
+            transition: opacity .15s .15s; 
+            height: 40px;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+   
+}
+
+button {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 20px;
+    color: #000;
+    line-height: 130%;
+    text-align: left;
+    transition: border-color .15s;
+    cursor: pointer;
+    display: inline;
+    margin-left: 10px;
+    background-color: #233fff;
+    color: white;
+}
+
+main {
+    margin: 160px auto;
+    width: 800px;
+
+    .main_content {
+        .stellingen {
+            width: 100%;
+            font-weight: normal;
+            font-size: 36px;
+            color: #000;
+            line-height: 140%;
+            letter-spacing: -.02em;
+    
+            span {
+                color: #233fff;
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+        }
+
+        .meer_info {
+            margin: 50px auto;
+            height: 65px;
+
+            .meer_infoBTN {
+                background-color: white;
+                color: black;
+            }
+            
+            .fa {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .buttonsContainer {
+        position: fixed;
+        bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 900px;
+        height: fit-content;
+
+        .primary_buttons {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            border: 3px solid transparent;
+            border-radius: 16px;
+            padding: 21px 29px;
+            background-color: #233fff;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 100%;
+            color: #fff;
+            text-align: left;
+            transition: all .15s;
+            cursor: pointer;
+
+            .fa {
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            .fa-thumbs-down {
+                transform: scaleX(-1);
+            }
+
+        }
+
+            .eens {
+                background-color: #20a84b;
+            }
+
+            .geen_van_beiden {
+                background-color: #e7eaeb;
+                color: black;
+            }
+
+            .on_eens {
+                background-color: #eb2045;
+            }
+
+
+            .eens:hover {
+                background-color: #1e9744;
+                .fa-thumbs-up {
+                    transform: rotate(-20deg);
+                }
+            }
+
+            .geen_van_beiden:hover {
+                background-color: #d4d8d9;
+                color: black;
+            }
+
+            .on_eens:hover {
+                background-color: #d8173a;
+                .fa-thumbs-down {
+                    transform: rotate(20deg);
+                }
+            }
+
+            hr {
+                z-index: -10;
+                width: 30px;
+                background-color: #e7eaeb;
+                height: 2px;
+                border: none;
+            }
+
+            .skipButton {
+                height: 40px;
+                margin-left: 80px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                border: 1px solid #e7eaeb;
+                border-radius: 64px;
+                padding: 8px 12px;
+                background: #fff;
+                line-height: 120%;
+                color: rgba(0,0,0,.4);
+                transition: all .15s;
+                cursor: pointer;
+
+                span {
+                    font-size: 20px;
+                    margin-left: 5px;
+                }
+            }
+
+            .skip:hover {
+                border: 1px solid #929292;
+            }
+    }
+}
+
+.extraOnderwerpenContainer {
+    position: absolute;
+    top: 150px;
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    
+    .extraOnderwerpenHeader {
+        display: flex;
+        justify-content: space-between;
+        width: 900px;
+        height: 130px;
+        margin-bottom: 20px;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 34px;
+            margin: 0px 20px 20px 0px;
+        }
+
+        p {
+            font-weight: normal;
+            font-size: 16px;
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        button {
+            width: 220px;
+            height: 70px;
+            text-align: center;
+            font-weight: 800;
+        }
+    }
+
+
+    .extraOnderwerpenMainContent {
+        background-color: #f1f1f1;
+        height: 690px;
+        width: 1080px;
+        border-radius: 40px;
+        display: grid;
+        grid-template-columns: 60px repeat(3, 300px) 90px;
+        grid-template-rows: 50px repeat(10, 50px);
+        // The first value is for the space between ROWS | The second value is the space between COLUMNS
+        grid-gap: 5px 15px;
+        margin: 30px auto;
+
+        .stellingKop {
+            border-radius: 4px;
+            cursor: pointer;
+            width: 300px;
+            height: 50px;
+            background-color: white;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: left;
+            cursor: pointer;
+
+            input[type="checkbox"] {
+                width: 20px;
+                height: 80px;
+                border-radius: 10px;
+                background-color: #f1f1f1;
+                margin: 0px 10px 0px 10px;
+                border: none;
+            }
+
+        }
+
+        #div0 {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+        #div1 {
+            grid-column: 2/3;
+            grid-row: 3/4;
+        }
+        }
+        #div2 {
+            grid-column: 2/3;
+            grid-row: 4/5;
+        }
+        #div3 {
+            grid-column: 2/3;
+            grid-row: 5/6;
+        }
+        #div4 {
+            grid-column: 2/3;
+            grid-row: 6/7;
+        }
+        #div5 {
+            grid-column: 2/3;
+            grid-row: 7/8;
+        }
+        #div6 {
+            grid-column: 2/3;
+            grid-row: 8/9;
+        }
+        #div7 {
+            grid-column: 2/3;
+            grid-row: 9/10;
+        }
+        #div8 {
+            grid-column: 2/3;
+            grid-row: 10/11;
+        }
+        #div9 {
+            grid-column: 2/3;
+            grid-row: 11/12;
+        }
+        #div10 {
+            grid-column: 2/3;
+            grid-row: 12/13;
+        }
+
+
+        
+        #div11 {
+            grid-column: 3/4;
+            grid-row: 2/3;
+        }
+        #div12 {
+            grid-column: 3/4;
+            grid-row: 3/4;
+        }
+        #div13 {
+            grid-column: 3/4;
+            grid-row: 4/5;
+        }
+        #div14 {
+            grid-column: 3/4;
+            grid-row: 5/6;
+        }
+        #div15 {
+            grid-column: 3/4;
+            grid-row: 6/7;
+        }
+        #div16 {
+            grid-column: 3/4;
+            grid-row: 7/8;
+        }
+        #div17 {
+            grid-column: 3/4;
+            grid-row: 8/9;
+        }
+        #div18 {
+            grid-column: 3/4;
+            grid-row: 9/10;
+        }
+        #div19 {
+            grid-column: 3/4;
+            grid-row: 10/11;
+        }
+        #div20 {
+            grid-column: 3/4;
+            grid-row: 11/12;
+        }
+
+
+
+        #div21 {
+            grid-column: 4/5;
+            grid-row: 2/3;
+        }
+        #div22 {
+            grid-column: 4/5;
+            grid-row: 3/4;
+        }
+        #div23 {
+            grid-column: 4/5;
+            grid-row: 4/5;
+        }
+        #div24 {
+            grid-column: 4/5;
+            grid-row: 5/6;
+        }
+        #div25 {
+            grid-column: 4/5;
+            grid-row: 6/7;
+        }
+        #div26 {
+            grid-column: 4/5;
+            grid-row: 7/8;
+        }
+        #div27 {
+            grid-column: 4/5;
+            grid-row: 8/9;
+        }
+        #div28 {
+            grid-column: 4/5;
+            grid-row: 9/10;
+        }
+        #div29 {
+            grid-column: 4/5;
+            grid-row: 10/11;
+        }
+        #div30 {
+            grid-column: 4/5;
+            grid-row:11/12;
+        }
+        
+        .stellingKop:focus {
+            border: 1px solid blue;
+        }
+
+}
+

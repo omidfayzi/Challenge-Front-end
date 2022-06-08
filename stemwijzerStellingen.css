@@ -1,0 +1,655 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  position: relative;
+}
+
+header {
+  margin: 0 auto;
+  height: auto;
+}
+
+header .process_indicator {
+  background-color: #233fff;
+  height: 7px;
+  margin-bottom: 10px;
+  width: 3.03%;
+}
+
+header .header_sides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: inline-block;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+header .left_side {
+  position: relative;
+  margin-left: 20px;
+}
+
+header .left_side a {
+  text-decoration: none;
+  color: black;
+}
+
+header .left_side .fa-arrow-left {
+  font-size: 30px;
+  border-radius: 50%;
+  background-color: #e7eaeb;
+  padding: 10px;
+}
+
+header .left_side #stemwijzerLogo {
+  height: 32px;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 60px;
+}
+
+header .right_side {
+  float: right;
+  margin: 10px 20px 0px 0px;
+}
+
+header .right_side #topLogo {
+  margin-left: 20px;
+  height: 15px;
+}
+
+header .right_side #vraag_nummer {
+  display: inline;
+  border: 1px solid #e7eaeb;
+  border-radius: 80px;
+  padding: 8px 12px;
+  -webkit-transition: opacity .15s .15s;
+  transition: opacity .15s .15s;
+  height: 40px;
+}
+
+header .right_side #vraag_nummer span {
+  font-weight: bold;
+}
+
+button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 20px;
+  color: #000;
+  line-height: 130%;
+  text-align: left;
+  -webkit-transition: border-color .15s;
+  transition: border-color .15s;
+  cursor: pointer;
+  display: inline;
+  margin-left: 10px;
+  background-color: #233fff;
+  color: white;
+}
+
+main {
+  margin: 160px auto;
+  width: 800px;
+}
+
+main .main_content .stellingen {
+  width: 100%;
+  font-weight: normal;
+  font-size: 36px;
+  color: #000;
+  line-height: 140%;
+  letter-spacing: -.02em;
+}
+
+main .main_content .stellingen span {
+  color: #233fff;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+main .main_content .meer_info {
+  margin: 50px auto;
+  height: 65px;
+}
+
+main .main_content .meer_info .meer_infoBTN {
+  background-color: white;
+  color: black;
+}
+
+main .main_content .meer_info .fa {
+  margin-right: 10px;
+}
+
+main .buttonsContainer {
+  position: fixed;
+  bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+main .buttonsContainer .primary_buttons {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  padding: 21px 29px;
+  background-color: #233fff;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  color: #fff;
+  text-align: left;
+  -webkit-transition: all .15s;
+  transition: all .15s;
+  cursor: pointer;
+}
+
+main .buttonsContainer .primary_buttons .fa {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+main .buttonsContainer .primary_buttons .fa-thumbs-down {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+main .buttonsContainer .eens {
+  background-color: #20a84b;
+}
+
+main .buttonsContainer .geen_van_beiden {
+  background-color: #e7eaeb;
+  color: black;
+}
+
+main .buttonsContainer .on_eens {
+  background-color: #eb2045;
+}
+
+main .buttonsContainer .eens:hover {
+  background-color: #1e9744;
+}
+
+main .buttonsContainer .eens:hover .fa-thumbs-up {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+
+main .buttonsContainer .geen_van_beiden:hover {
+  background-color: #d4d8d9;
+  color: black;
+}
+
+main .buttonsContainer .on_eens:hover {
+  background-color: #d8173a;
+}
+
+main .buttonsContainer .on_eens:hover .fa-thumbs-down {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+
+main .buttonsContainer hr {
+  z-index: -10;
+  width: 30px;
+  background-color: #e7eaeb;
+  height: 2px;
+  border: none;
+}
+
+main .buttonsContainer .skipButton {
+  height: 40px;
+  margin-left: 80px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #e7eaeb;
+  border-radius: 64px;
+  padding: 8px 12px;
+  background: #fff;
+  line-height: 120%;
+  color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: all .15s;
+  transition: all .15s;
+  cursor: pointer;
+}
+
+main .buttonsContainer .skipButton span {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+main .buttonsContainer .skip:hover {
+  border: 1px solid #929292;
+}
+
+.extraOnderwerpenContainer {
+  position: absolute;
+  top: 150px;
+  height: 1000px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 900px;
+  height: 130px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenHeader h1 {
+  font-size: 34px;
+  margin: 0px 20px 20px 0px;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenHeader p {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenHeader p span {
+  font-weight: bold;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenHeader button {
+  width: 220px;
+  height: 70px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenMainContent {
+  background-color: #f1f1f1;
+  height: 690px;
+  width: 1080px;
+  border-radius: 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px (300px)[3] 90px;
+      grid-template-columns: 60px repeat(3, 300px) 90px;
+  -ms-grid-rows: 50px (50px)[10];
+      grid-template-rows: 50px repeat(10, 50px);
+  grid-gap: 5px 15px;
+  margin: 30px auto;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenMainContent .stellingKop {
+  border-radius: 4px;
+  cursor: pointer;
+  width: 300px;
+  height: 50px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  cursor: pointer;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenMainContent .stellingKop input[type="checkbox"] {
+  width: 20px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  margin: 0px 10px 0px 10px;
+  border: none;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenMainContent #div0 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+}
+
+.extraOnderwerpenContainer .extraOnderwerpenMainContent #div1 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+.extraOnderwerpenContainer #div2 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+}
+
+.extraOnderwerpenContainer #div3 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  grid-row: 5/6;
+}
+
+.extraOnderwerpenContainer #div4 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  grid-row: 6/7;
+}
+
+.extraOnderwerpenContainer #div5 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  grid-row: 7/8;
+}
+
+.extraOnderwerpenContainer #div6 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 1;
+  grid-row: 8/9;
+}
+
+.extraOnderwerpenContainer #div7 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 1;
+  grid-row: 9/10;
+}
+
+.extraOnderwerpenContainer #div8 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 10;
+  -ms-grid-row-span: 1;
+  grid-row: 10/11;
+}
+
+.extraOnderwerpenContainer #div9 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 11;
+  -ms-grid-row-span: 1;
+  grid-row: 11/12;
+}
+
+.extraOnderwerpenContainer #div10 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 12;
+  -ms-grid-row-span: 1;
+  grid-row: 12/13;
+}
+
+.extraOnderwerpenContainer #div11 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+}
+
+.extraOnderwerpenContainer #div12 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+.extraOnderwerpenContainer #div13 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+}
+
+.extraOnderwerpenContainer #div14 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  grid-row: 5/6;
+}
+
+.extraOnderwerpenContainer #div15 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  grid-row: 6/7;
+}
+
+.extraOnderwerpenContainer #div16 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  grid-row: 7/8;
+}
+
+.extraOnderwerpenContainer #div17 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 1;
+  grid-row: 8/9;
+}
+
+.extraOnderwerpenContainer #div18 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 1;
+  grid-row: 9/10;
+}
+
+.extraOnderwerpenContainer #div19 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 10;
+  -ms-grid-row-span: 1;
+  grid-row: 10/11;
+}
+
+.extraOnderwerpenContainer #div20 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 11;
+  -ms-grid-row-span: 1;
+  grid-row: 11/12;
+}
+
+.extraOnderwerpenContainer #div21 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+}
+
+.extraOnderwerpenContainer #div22 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+.extraOnderwerpenContainer #div23 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+}
+
+.extraOnderwerpenContainer #div24 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  grid-row: 5/6;
+}
+
+.extraOnderwerpenContainer #div25 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  grid-row: 6/7;
+}
+
+.extraOnderwerpenContainer #div26 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  grid-row: 7/8;
+}
+
+.extraOnderwerpenContainer #div27 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 1;
+  grid-row: 8/9;
+}
+
+.extraOnderwerpenContainer #div28 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 1;
+  grid-row: 9/10;
+}
+
+.extraOnderwerpenContainer #div29 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 10;
+  -ms-grid-row-span: 1;
+  grid-row: 10/11;
+}
+
+.extraOnderwerpenContainer #div30 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 11;
+  -ms-grid-row-span: 1;
+  grid-row: 11/12;
+}
+
+.extraOnderwerpenContainer .stellingKop:focus {
+  border: 1px solid blue;
+}
+/*# sourceMappingURL=stemwijzerStellingen.css.map */
