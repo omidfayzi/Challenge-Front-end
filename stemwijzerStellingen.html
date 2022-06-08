@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+    />
+    <link rel="stylesheet" href="/Challenge-Front-end/stemwijzerStellingen.css" />
+    <link rel = "icon" href ="/imgFolder/icon.png" type = "image/">  
+    <title>Tweede Kamerverkiezingen 2021</title>
+  </head>
+    <body>
+    <header>
+      <div id="topBar" class="process_indicator"></div>
+      <div class="header_sides left_side">
+        <a id="leftArrowLink" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        <img
+          id="stemwijzerLogo"
+          src="/imgFolder/stemwijzerLogoSmall.jpg" alt="stemwijzerlogo"
+        />
+      </div>
+      <div class="header_sides right_side">
+        <p id="vraag_nummer"><span id="currentQuestionNumber">1</span>/30</p>
+        <img id="topLogo" src="/imgFolder/top_logo.svg" alt="top_logo" />
+      </div>
+    </header>
+    <main class="main">
+     <div class="main_content">
+      <div class="stellingen">
+        <span id="stelling_titel"></span>
+        <br>
+        <p id="stelling_inhoud"></p>
+      </div>
+      <div class="meer_info">
+        <button class="meer_infoBTN"><i class="fa fa-comments" aria-hidden="true"></i> Wat vinden de partijen?</button>
+        <button class="meer_infoBTN"><i class="fa fa-book" aria-hidden="true"></i>Meer weten</button>
+      </div>
+     </div>
+      <div class="buttonsContainer">
+        <button value="Eens" class="primary_buttons eens"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Eens</button>
+        <hr>
+        <button value="Geen van beiden" class="primary_buttons geen_van_beiden">Geen van beiden</button>
+        <hr>
+        <button value="Oneens" class="primary_buttons on_eens"><i class="fa fa-thumbs-down" aria-hidden="true"></i>Oneens</button>
+        <button value="" class="skipButton">Overslaan <span>🠖</span></button>
+      </div>
+    </main>
+    <section class="extraOnderwerpenContainer">
+      <div class="extraOnderwerpenHeader">
+          <div>
+            <h1 id="extraOnderwerpenTitel"><h1>
+            <p><span id="checkCounter"></span>/30 stellingen geselecteerd</p>
+        </div>
+        <button class="nextButton">Volgende Stap</button>
+      </div>
+      <div class="extraOnderwerpenMainContent"></div>
+    </section>
+    <script type="text/javascript" src="/Challenge-Front-end/stellingen.js"></script>
+    <script type="text/javascript" src="/Challenge-Front-end/stemwijzerStellingen.js"></script>
+  </body>
+</html>
