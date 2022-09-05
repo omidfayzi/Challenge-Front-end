@@ -260,16 +260,19 @@ main {
 
         h1 {
             font-size: 34px;
-            margin: 0px 20px 20px 0px;
+            margin-bottom: 20px;
+            width: 570px;
         }
 
         p {
             font-weight: normal;
             font-size: 16px;
+            display: inline;
+            margin: 0;
+        }
 
-            span {
-                font-weight: bold;
-            }
+        #checkCounter {
+           font-weight: bold;
         }
 
         button {
@@ -291,7 +294,8 @@ main {
         grid-template-rows: 50px repeat(10, 50px);
         // The first value is for the space between ROWS | The second value is the space between COLUMNS
         grid-gap: 5px 15px;
-        margin: 30px auto;
+        margin: 50px auto;
+        border: 2px solid red;
 
         .stellingKop {
             border-radius: 4px;
@@ -311,7 +315,6 @@ main {
                 border-radius: 10px;
                 background-color: #f1f1f1;
                 margin: 0px 10px 0px 10px;
-                border: none;
             }
 
         }

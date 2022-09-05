@@ -25,16 +25,16 @@ const stellingen = [
         stelling : 'Aankomende jaarwisseling moet het weer toegestaan zijn om siervuurwerk af te steken.'
     }
     ,{
-        stelling_kop : 'Publieke omroep',
-        stelling : 'Er moet minder geld naar de publieke omroep.'
-    }
-    ,{
         stelling_kop : 'Vleesbelasting',
         stelling : 'Er moet een extra belasting komen op het kopen van vlees.'
     }
     ,{
+        stelling_kop : 'Publieke omroep',
+        stelling : 'Er moet minder geld naar de publieke omroep.'
+    }
+    ,{
         stelling_kop : 'Zorgfonds',
-        stelling : 'In plaats van de bestaande zorgverzekeraars moet er een landelijk zorgfonds komen voor iedereen.t een extra belasting komen op het kopen van vlees.'
+        stelling : 'In plaats van de bestaande zorgverzekeraars moet er een landelijk zorgfonds komen voor iedereen.t een extra belasting komen op het kopen van vlees.',
     }
     ,{
         stelling_kop : 'Gezichtsbedekkende kleding',
@@ -47,10 +47,6 @@ const stellingen = [
     ,{
         stelling_kop : 'Btw op kunst en cultuur',
         stelling : 'De regering moet de btw op culturele activiteiten verlagen naar 5 procent.'
-    }
-    ,{
-        stelling_kop : 'Publieke omroep',
-        stelling : 'Er moet minder geld naar de publieke omroep.' /////////////////////////////////////////////////////////////////////////////////////
     }
     ,{
         stelling_kop : 'Kerncentrale',
@@ -73,12 +69,12 @@ const stellingen = [
         stelling : 'Burgers moeten de mogelijkheid krijgen om door het parlement aangenomen wetten tegen te houden via een referendum.'
     }
     ,{
-        stelling_kop : 'Gevangenisstraffen',
-        stelling : 'Er moeten minder mogelijkheden komen om taakstraffen op te leggen in plaats van gevangenisstraffen.'
-    }
-    ,{
         stelling_kop : 'Inkomen leraren',
         stelling : 'Leraren op basisscholen moeten net zoveel gaan verdienen als leraren op middelbare scholen.'
+    }
+    ,{
+        stelling_kop : 'Gevangenisstraffen',
+        stelling : 'Er moeten minder mogelijkheden komen om taakstraffen op te leggen in plaats van gevangenisstraffen.'
     }
     ,{
         stelling_kop : 'Vliegbelasting',
@@ -89,12 +85,20 @@ const stellingen = [
         stelling : 'Asielzoekers met een voorlopige verblijfsvergunning moeten eerst inburgeren voordat zij een huurwoning krijgen.'
     }
     ,{
+        stelling_kop : 'Legalisering softdrugs',
+        stelling : 'Zowel inkoop als verkoop van softdrugs door coffeeshops moet legaal worden.'
+    }
+    ,{
         stelling_kop : 'Nederlandstalig hoger onderwijs',
         stelling : 'De overheid moet onderwijs in het Nederlands vaker verplicht stellen op universiteiten en hogescholen.'
     }
     ,{
         stelling_kop : 'Voltooid leven',
         stelling : 'Mensen die hun leven voltooid vinden, moeten hulp kunnen krijgen bij zelfdoding.'
+    }
+    ,{
+        stelling_kop : 'Koppeling minimumloon en bijstand',
+        stelling : 'Verhoging van de minimumlonen moet niet langer automatisch leiden tot verhoging van de bijstandsuitkeringen.'
     }
     ,{
         stelling_kop : 'Sociale huurwoningen',
@@ -109,25 +113,25 @@ const stellingen = [
         stelling : 'Er moet een middenschool komen, zodat leerlingen op latere leeftijd de keuze maken tussen vmbo, havo of vwo.'
     }
     ,{
-        stelling_kop : 'Legalisering softdrugs',
-        stelling : 'Zowel inkoop als verkoop van softdrugs door coffeeshops moet legaal worden.'
-    }
-    ,{
-        stelling_kop : 'Koppeling minimumloon en bijstand',
-        stelling : 'Verhoging van de minimumlonen moet niet langer automatisch leiden tot verhoging van de bijstandsuitkeringen.'
+        stelling_kop : 'Vluchtelingen opnemen',
+        stelling : 'Nederland moet meer vluchtelingen opnemen dan het nu doet.'
     }
     ,{
         stelling_kop : 'Mondkapjesverplicht',
         stelling : 'Mensen moeten altijd zelf kunnen kiezen of ze een mondkapje dragen.'
     }
-    ,{
-        stelling_kop : 'Vluchtelingen opnemen',
-        stelling : 'Nederland moet meer vluchtelingen opnemen dan het nu doet.'
-    }
-    ,{
-        stelling_kop : 'Zijn er onderwerpen die je extra belangrijk vindt?'
-    }
 ];
+
+var extraStappen = [
+    {
+        titel : 'Zijn er onderwerpen die je extra belangrijk vindt?',
+        beschrijving : '/ 30 stellingen geselecteerd'
+    },
+    {
+        titel : 'Welke partijen wil je meenemen in het resultaat?',
+        beschrijving : 'Kies alle partijen, alleen de partijen die nu al in de Tweede Kamer zitten, of maak zelf een selectie. Selecteer minimaal 3 partijen.'
+    },
+]
 
 // ANTWOORDEN VAN DE GEBRUIKER
 var antwoorden = [];
@@ -154,15 +158,27 @@ var extraOnderwerpenContainer = document.querySelector('.extraOnderwerpenContain
 var extraOnderwerpenMainContent = document.querySelector('.extraOnderwerpenMainContent'); 
 var extraOnderwerpenTitel = document.getElementById('extraOnderwerpenTitel');
 var checkCounter = document.getElementById('checkCounter');
+var nextButton = document.querySelector('.nextButton');
+var extraOnderwerpenBeschrijving = document.getElementById('extraOnderwerpenBeschrijving'); 
+
+// EERSTE STELLING OP HET SCHERM LATEN TONEN
+function eersteStelling () {
+    var stelling_titel_innerText = stellingen[1].stelling_kop;
+    var stelling_inhoud_innerText = stellingen[1].stelling;
+    stelling_titel.innerText = stelling_titel_innerText;
+    stelling_inhoud.innerHTML = stelling_inhoud_innerText;
+} 
+eersteStelling();
 
 
-// FUNCTIE VOOR EXTRA STELLINGEN
-
-
-function displayResults (Array, displayAntwoord) {
+// MAIN FUNCTIE 
+function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappenBeschrijving, displayOfP) {
     extraOnderwerpenContainer.style.display = displayAntwoord;
-    extraOnderwerpenTitel.innerText = stellingen[32].stelling_kop;
+    extraOnderwerpenTitel.innerText = extraStappenTitel;
+    extraOnderwerpenBeschrijving.innerText = extraStappenBeschrijving;
+    checkCounter.style.display = displayOfP;
     stellingen.pop();
+
     var maxNumber = stellingen.length - 1;
 
     for(i = 0; i < maxNumber; i++) {
@@ -187,32 +203,23 @@ function displayResults (Array, displayAntwoord) {
             if(checkboxes[currrentElement].checked == false) {
                 checkboxes[currrentElement].checked = true;
                 checkCounterVar += 1;
-                console.log(checkCounterVar)
+
             } else {
                 checkboxes[currrentElement].checked = false;
                 checkCounterVar -= 1;
-                console.log(checkCounterVar)
+
             }
-        
         }
 
         divElement.appendChild(checkBoxElement);
         extraOnderwerpenMainContent.appendChild(divElement);
-    }
+    }   
+    
+    console.log(antwoorden)
 }
 
 
-// EERSTE STELLING OP HET SCHERM LATEN TONEN
-function eersteStelling () {
-    var stelling_titel_innerText = stellingen[1].stelling_kop;
-    var stelling_inhoud_innerText = stellingen[1].stelling;
-    stelling_titel.innerText = stelling_titel_innerText;
-    stelling_inhoud.innerHTML = stelling_inhoud_innerText;
-} 
-eersteStelling();
-
-
-function displayStelling (clikcCounter, buttonValue, style) {
+function displayStelling (clikcCounter, buttonValue, thisButton, style) {
     var stelling_titel_innerText = stellingen[clikcCounter].stelling_kop;
     var stelling_inhoud_innerText = stellingen[clikcCounter].stelling;
 
@@ -234,8 +241,9 @@ primaryButtons.forEach(function displayItem (item, index, object) {
         if(clikcCounter <= 30) {
             // GETS THE  VALUE OF THE CURRENT BUTTON 
             var buttonValue = e.target.value;
+            var thisButton = e.target;
 
-            displayStelling(clikcCounter, buttonValue, 'block');
+            displayStelling(clikcCounter, buttonValue, thisButton, 'block');
         
             // CHANGING THE WIDTH OF THE TOPBAR 
             currentWidth += 3.03;
@@ -247,10 +255,10 @@ primaryButtons.forEach(function displayItem (item, index, object) {
             // CALCULATION OF CLICK COUNT
             clikcCounter ++;
         }   else if (clikcCounter >= 31) {
-            displayStelling(clikcCounter, '', 'none');
-            displayResults ('', 'block');
+            main_content.style.display = 'none';
+            buttonsContainer.style.display = 'none';
+            displayResults ('', 'block', extraStappen[0].titel, extraStappen[0].beschrijving, 'none');
         }
-    
         
     }
 })
@@ -274,8 +282,7 @@ skipButton.onclick = function () {
         // CALCULATION OF CLICK COUNT
         clikcCounter ++;
     }   else if (clikcCounter >= 31) {
-        displayStelling(clikcCounter, '', 'none');
-        displayResults ('', 'block');
+       console.log('Ga terug om de vragen te beantwoorden')
     }
 }
 
@@ -284,7 +291,34 @@ skipButton.onclick = function () {
 leftArrowLink.onclick = function () {
     if(clikcCounter > 2 && clikcCounter <= 31) {
         extraOnderwerpenContainer.style.display = 'none';
-       
+
+        var colorOfButton = '';
+
+        for (key of primaryButtons) {
+            colorOfButton =  key.value;
+        }
+
+        console.log('This is the empty varible ' + colorOfButton)
+
+
+        if (colorOfButton == 'Eens') {
+            console.log('Groen')
+        } else if (colorOfButton == 'Oneens') {
+            console.log('Rood')
+        } else {
+            console.log('Geen van Beiden')
+        }
+
+
+
+        // if(colorOfButton == antwoorden[clikcCounter]) {
+        //     console.log(colorOfButton)
+
+        //     console.log('')
+
+        //     console.log(clikcCounter - 1)
+        // }
+
         // CHANGING THE WIDTH OF THE TOPBAR 
         currentWidth -= 3.03;
         clikcCounter -= 1;
@@ -302,6 +336,11 @@ leftArrowLink.onclick = function () {
         leftArrowLink.href = '/Challenge-Front-end/stemwijzer.html';
     }
 }
+
+
+nextButton.addEventListener("click", function(){
+    displayResults ('', 'block', extraStappen[1].titel, extraStappen[1].beschrijving), 'block';
+})
 
 
 
