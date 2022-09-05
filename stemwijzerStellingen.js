@@ -161,6 +161,8 @@ var checkCounter = document.getElementById('checkCounter');
 var nextButton = document.querySelector('.nextButton');
 var extraOnderwerpenBeschrijving = document.getElementById('extraOnderwerpenBeschrijving');
 
+var checkCounterVar = 0;
+
 
 // EERSTE STELLING OP HET SCHERM LATEN TONEN
 function eersteStelling () {
@@ -176,11 +178,12 @@ eersteStelling();
 function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappenBeschrijving, displayOfP) {
     extraOnderwerpenContainer.style.display = displayAntwoord;
     extraOnderwerpenTitel.innerText = extraStappenTitel;
-    extraOnderwerpenBeschrijving.innerText = '0' + extraStappenBeschrijving;
+    extraOnderwerpenBeschrijving.innerHTML = '<span id="checkedAmount">0</span>' + extraStappenBeschrijving;
     checkCounter.style.display = displayOfP;
     stellingen.pop();
 
     var maxNumber = stellingen.length - 1;
+    checkCounterVar = 0;
 
     for(i = 0; i < maxNumber; i++) {
         var divElement = document.createElement('div');
@@ -192,7 +195,7 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
         checkBoxElement.classList.add('checked');
 
         var checkboxes = document.querySelectorAll('.checked');
-        var checkCounterVar = 0;
+
 
         checkCounter.innerHTML = `${checkCounterVar}`;
 
@@ -201,19 +204,6 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
         divElement.innerText = stellingen[i + 1].stelling_kop;
         divElement.classList.add('stellingKop');
         divElement.setAttribute('id', 'div' + i)
-        divElement.onclick = function (e) {
-            var currrentElement =  e.target.id;
-            currrentElement = currrentElement.substr(3);
-            if(checkboxes[currrentElement].checked == false) {
-                checkboxes[currrentElement].checked = true;
-                checkCounterVar += 1;
-
-            } else {
-                checkboxes[currrentElement].checked = false;
-                checkCounterVar -= 1;
-
-            }
-        }
 
         divElement.appendChild(checkBoxElement);
         extraOnderwerpenMainContent.appendChild(divElement);
@@ -226,7 +216,13 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
 }
 
 function checkForChanges(currentCheckBox) {
-    console.log(currentCheckBox)
+    if(currentCheckBox.checked) {
+        checkCounterVar += 1;
+    } else {
+        checkCounterVar -= 1;
+    }
+    console.log(checkCounterVar)
+    document.getElementById('checkedAmount').innerText = checkCounterVar;
 }
 
 
