@@ -159,7 +159,8 @@ var extraOnderwerpenMainContent = document.querySelector('.extraOnderwerpenMainC
 var extraOnderwerpenTitel = document.getElementById('extraOnderwerpenTitel');
 var checkCounter = document.getElementById('checkCounter');
 var nextButton = document.querySelector('.nextButton');
-var extraOnderwerpenBeschrijving = document.getElementById('extraOnderwerpenBeschrijving'); 
+var extraOnderwerpenBeschrijving = document.getElementById('extraOnderwerpenBeschrijving');
+
 
 // EERSTE STELLING OP HET SCHERM LATEN TONEN
 function eersteStelling () {
@@ -175,7 +176,7 @@ eersteStelling();
 function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappenBeschrijving, displayOfP) {
     extraOnderwerpenContainer.style.display = displayAntwoord;
     extraOnderwerpenTitel.innerText = extraStappenTitel;
-    extraOnderwerpenBeschrijving.innerText = extraStappenBeschrijving;
+    extraOnderwerpenBeschrijving.innerText = '0' + extraStappenBeschrijving;
     checkCounter.style.display = displayOfP;
     stellingen.pop();
 
@@ -187,12 +188,15 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
 
         checkBoxElement.setAttribute('type', 'checkbox');
         checkBoxElement.setAttribute('id', 'checkbox' + i);
+        checkBoxElement.setAttribute('onchange', 'checkForChanges(this)');
         checkBoxElement.classList.add('checked');
 
         var checkboxes = document.querySelectorAll('.checked');
         var checkCounterVar = 0;
 
         checkCounter.innerHTML = `${checkCounterVar}`;
+
+        
 
         divElement.innerText = stellingen[i + 1].stelling_kop;
         divElement.classList.add('stellingKop');
@@ -213,9 +217,16 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
 
         divElement.appendChild(checkBoxElement);
         extraOnderwerpenMainContent.appendChild(divElement);
-    }   
+    } 
+    
+    var checkbox21 = document.getElementById('checkbox21');
+    console.log(checkbox21.value)
     
     console.log(antwoorden)
+}
+
+function checkForChanges(currentCheckBox) {
+    console.log(currentCheckBox)
 }
 
 
@@ -229,6 +240,7 @@ function displayStelling (clikcCounter, buttonValue, thisButton, style) {
 
     main.style.display = style;
 } 
+
 
 // FUNCTIE VOOR ELKE PRIMARY BUTTON 
 
@@ -291,6 +303,8 @@ skipButton.onclick = function () {
 leftArrowLink.onclick = function () {
     if(clikcCounter > 2 && clikcCounter <= 31) {
         extraOnderwerpenContainer.style.display = 'none';
+        main_content.style.display = 'block';
+        buttonsContainer.style.display = null;
 
         var colorOfButton = '';
 
