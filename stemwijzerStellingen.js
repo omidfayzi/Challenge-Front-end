@@ -1,5 +1,4 @@
 const stellingen = [
-    '',
     {
         stelling_kop : 'Vaccinatiebewijs',
         stelling : 'Organisatoren van evenementen moeten bij de toegang een vaccinatiebewijs kunnen vragen.'
@@ -122,6 +121,9 @@ const stellingen = [
     }
 ];
 
+
+// console.log(stellingen)
+
 var extraStappen = [
     {
         titel : 'Zijn er onderwerpen die je extra belangrijk vindt?',
@@ -162,12 +164,13 @@ var nextButton = document.querySelector('.nextButton');
 var extraOnderwerpenBeschrijving = document.getElementById('extraOnderwerpenBeschrijving');
 
 var checkCounterVar = 0;
+var clickCounter = 1;
 
 
 // EERSTE STELLING OP HET SCHERM LATEN TONEN
 function eersteStelling () {
-    var stelling_titel_innerText = stellingen[1].stelling_kop;
-    var stelling_inhoud_innerText = stellingen[1].stelling;
+    var stelling_titel_innerText = stellingen[0].stelling_kop;
+    var stelling_inhoud_innerText = stellingen[0].stelling;
     stelling_titel.innerText = stelling_titel_innerText;
     stelling_inhoud.innerHTML = stelling_inhoud_innerText;
 } 
@@ -180,7 +183,6 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     extraOnderwerpenTitel.innerText = extraStappenTitel;
     extraOnderwerpenBeschrijving.innerHTML = '<span id="checkedAmount">0</span>' + extraStappenBeschrijving;
     checkCounter.style.display = displayOfP;
-    stellingen.pop();
 
     var maxNumber = stellingen.length - 1;
     checkCounterVar = 0;
@@ -188,18 +190,14 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     for(i = 0; i < maxNumber; i++) {
         var divElement = document.createElement('div');
         var checkBoxElement = document.createElement('input');
+        var checkboxes = document.querySelectorAll('.checked');
 
         checkBoxElement.setAttribute('type', 'checkbox');
         checkBoxElement.setAttribute('id', 'checkbox' + i);
         checkBoxElement.setAttribute('onchange', 'checkForChanges(this)');
         checkBoxElement.classList.add('checked');
 
-        var checkboxes = document.querySelectorAll('.checked');
-
-
         checkCounter.innerHTML = `${checkCounterVar}`;
-
-        
 
         divElement.innerText = stellingen[i + 1].stelling_kop;
         divElement.classList.add('stellingKop');
@@ -208,11 +206,7 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
         divElement.appendChild(checkBoxElement);
         extraOnderwerpenMainContent.appendChild(divElement);
     } 
-    
     var checkbox21 = document.getElementById('checkbox21');
-    console.log(checkbox21.value)
-    
-    console.log(antwoorden)
 }
 
 function checkForChanges(currentCheckBox) {
@@ -226,9 +220,9 @@ function checkForChanges(currentCheckBox) {
 }
 
 
-function displayStelling (clikcCounter, buttonValue, thisButton, style) {
-    var stelling_titel_innerText = stellingen[clikcCounter].stelling_kop;
-    var stelling_inhoud_innerText = stellingen[clikcCounter].stelling;
+function displayStelling (clickCounter, buttonValue, thisButton, style) {
+    var stelling_titel_innerText = stellingen[clickCounter].stelling_kop;
+    var stelling_inhoud_innerText = stellingen[clickCounter].stelling;
 
     stelling_titel.innerText = stelling_titel_innerText;
     stelling_inhoud.innerHTML = stelling_inhoud_innerText;
@@ -239,33 +233,50 @@ function displayStelling (clikcCounter, buttonValue, thisButton, style) {
 
 
 // FUNCTIE VOOR ELKE PRIMARY BUTTON 
-
-var clikcCounter = 2;
 var currentWidth = 3.3;
 
 primaryButtons.forEach(function displayItem (item, index, object) {
     item.onclick = function (e) {
         
-        if(clikcCounter <= 30) {
+        if(clickCounter < 30) {
             // GETS THE  VALUE OF THE CURRENT BUTTON 
             var buttonValue = e.target.value;
             var thisButton = e.target;
 
-            displayStelling(clikcCounter, buttonValue, thisButton, 'block');
+            displayStelling(clickCounter, buttonValue, thisButton, 'block');
+
+            console.log(clickCounter)
         
             // CHANGING THE WIDTH OF THE TOPBAR 
             currentWidth += 3.03;
             topBar.style.width = currentWidth + '%';
 
             // CHANGING THE NUMBER OF THE CURRENT QUESTION
-            huidigeVraagNummer.innerText = clikcCounter;
+            huidigeVraagNummer.innerText = clickCounter;
 
             // CALCULATION OF CLICK COUNT
-            clikcCounter ++;
-        }   else if (clikcCounter >= 31) {
+            clickCounter ++;
+        }   else if (clickCounter >= 30 ) {
+
+            console.log('De clickCounter is nu gelijk aan 29 ')
+
+            var buttonValue = e.target.value;
+
+            antwoorden.push(buttonValue);
+
+            console.log(antwoorden);
+            console.log(antwoorden.length);
+
+            console.log('');
+            
+            console.log(stellingen);
+            console.log(stellingen.length);
+
             main_content.style.display = 'none';
             buttonsContainer.style.display = 'none';
             displayResults ('', 'block', extraStappen[0].titel, extraStappen[0].beschrijving, 'none');
+
+            
         }
         
     }
@@ -275,74 +286,90 @@ primaryButtons.forEach(function displayItem (item, index, object) {
 // FUNCTIE VOOR HET OVERSLAAN BUTTON 
 
 skipButton.onclick = function () {
-
-    if (clikcCounter < 31 ) {   
-        displayStelling(clikcCounter, '', 'block');
+    clickCounter - 1;
+    if (clickCounter <= 30 ) {   
+        displayStelling(clickCounter, '3', 'block');
         
         // CHANGING THE WIDTH OF THE TOPBAR 
         currentWidth += 3.03;
         topBar.style.width = currentWidth + '%';
 
         // CHANGING THE NUMBER OF THE CURRENT QUESTION
-        huidigeVraagNummer.innerText = clikcCounter;
-        console.log(clikcCounter)
+        huidigeVraagNummer.innerText = clickCounter;
 
         // CALCULATION OF CLICK COUNT
-        clikcCounter ++;
-    }   else if (clikcCounter >= 31) {
-       console.log('Ga terug om de vragen te beantwoorden')
+        clickCounter ++;
+
+        console.log(clickCounter)
+
+    }  else if (clickCounter >= 31) {
+        // displayStelling(clickCounter, buttonValue, thisButton, 'block');
+
+        // console.log(antwoorden)
+        // console.log(antwoorden.length)
+
+        // console.log('');
+        
+        console.log(stellingen)
+        console.log(stellingen.length)
+
+        main_content.style.display = 'none';
+        buttonsContainer.style.display = 'none';
+        displayResults ('', 'block', extraStappen[0].titel, extraStappen[0].beschrijving, 'none');
     }
 }
 
 // FUNCTIE VOOR HET PIJL NAAR RECHTS
 
+
 leftArrowLink.onclick = function () {
-    if(clikcCounter > 2 && clikcCounter <= 31) {
+    console.log(Number(clickCounter -1))
+
+    if(clickCounter >= 2 && clickCounter <= 31) {
         extraOnderwerpenContainer.style.display = 'none';
         main_content.style.display = 'block';
         buttonsContainer.style.display = null;
 
-        var colorOfButton = '';
 
-        for (key of primaryButtons) {
-            colorOfButton =  key.value;
-        }
+        for(var i = 0; i < 3; i++) {
+            if(primaryButtons[i].style.backgroundColor  == 'rgb(35, 63, 255)'){
 
-        console.log('This is the empty varible ' + colorOfButton)
-
-
-        if (colorOfButton == 'Eens') {
-            console.log('Groen')
-        } else if (colorOfButton == 'Oneens') {
-            console.log('Rood')
-        } else {
-            console.log('Geen van Beiden')
+                 primaryButtons[0].style.backgroundColor = '#20a84b';
+                 primaryButtons[1].style.backgroundColor = '#e7eaeb';
+                 primaryButtons[1].style.color = 'black';
+                 primaryButtons[2].style.backgroundColor = '#d8173a';
+            }
         }
 
 
+        console.log(antwoorden)
 
-        // if(colorOfButton == antwoorden[clikcCounter]) {
-        //     console.log(colorOfButton)
 
-        //     console.log('')
 
-        //     console.log(clikcCounter - 1)
-        // }
+        var range = antwoorden[clickCounter - 2];
+
+                
+           primaryButtons[range].style.backgroundColor = '#233fff';
+           primaryButtons[range].style.color = 'white';
+
 
         // CHANGING THE WIDTH OF THE TOPBAR 
         currentWidth -= 3.03;
-        clikcCounter -= 1;
+        clickCounter -= 1;
         topBar.style.width = currentWidth + '%';
 
-       if (clikcCounter <= 30) {
-            displayStelling(clikcCounter, '', 'block');
-        }
+       if (clickCounter <= 30) {
+            displayStelling(clickCounter, '', 'block');
+        } 
        
-        huidigeVraagNummer.innerHTML = clikcCounter;
+        huidigeVraagNummer.innerHTML = clickCounter;
     }
 
+    if (clickCounter == 1) {
+        eersteStelling();
+    }
 
-    if (clikcCounter <= 0) {
+    if (clickCounter == 0) {
         leftArrowLink.href = '/Challenge-Front-end/stemwijzer.html';
     }
 }
@@ -351,14 +378,3 @@ leftArrowLink.onclick = function () {
 nextButton.addEventListener("click", function(){
     displayResults ('', 'block', extraStappen[1].titel, extraStappen[1].beschrijving), 'block';
 })
-
-
-
-
-
-
-
-
-
-
-
