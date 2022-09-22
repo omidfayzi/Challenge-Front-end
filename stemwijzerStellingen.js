@@ -168,13 +168,12 @@ var clickCounter = 1;
 
 
 // EERSTE STELLING OP HET SCHERM LATEN TONEN
-function eersteStelling () {
-    var stelling_titel_innerText = stellingen[0].stelling_kop;
-    var stelling_inhoud_innerText = stellingen[0].stelling;
-    stelling_titel.innerText = stelling_titel_innerText;
-    stelling_inhoud.innerHTML = stelling_inhoud_innerText;
+function eersteStelling (stellingNummer) {
+    stelling_titel.innerText = stellingen[stellingNummer].stelling_kop;
+    stelling_inhoud.innerHTML = stellingen[stellingNummer].stelling;
+    antwoorden = [];
 } 
-eersteStelling();
+eersteStelling(0);
 
 
 // MAIN FUNCTIE 
@@ -258,24 +257,13 @@ primaryButtons.forEach(function displayItem (item, index, object) {
             clickCounter ++;
         }   else if (clickCounter >= 30 ) {
 
-            console.log('De clickCounter is nu gelijk aan 29 ')
-
             var buttonValue = e.target.value;
 
             antwoorden.push(buttonValue);
 
-            console.log(antwoorden);
-            console.log(antwoorden.length);
-
-            console.log('');
-            
-            console.log(stellingen);
-            console.log(stellingen.length);
-
             main_content.style.display = 'none';
             buttonsContainer.style.display = 'none';
             displayResults ('', 'block', extraStappen[0].titel, extraStappen[0].beschrijving, 'none');
-
             
         }
         
@@ -303,15 +291,6 @@ skipButton.onclick = function () {
         console.log(clickCounter)
 
     }  else if (clickCounter >= 31) {
-        // displayStelling(clickCounter, buttonValue, thisButton, 'block');
-
-        // console.log(antwoorden)
-        // console.log(antwoorden.length)
-
-        // console.log('');
-        
-        console.log(stellingen)
-        console.log(stellingen.length)
 
         main_content.style.display = 'none';
         buttonsContainer.style.display = 'none';
@@ -323,7 +302,7 @@ skipButton.onclick = function () {
 
 
 leftArrowLink.onclick = function () {
-    console.log(Number(clickCounter -1))
+    Number(clickCounter -1)
 
     if(clickCounter >= 2 && clickCounter <= 31) {
         extraOnderwerpenContainer.style.display = 'none';
@@ -341,17 +320,14 @@ leftArrowLink.onclick = function () {
             }
         }
 
-
-        console.log(antwoorden)
-
-
-
         var range = antwoorden[clickCounter - 2];
 
-                
-           primaryButtons[range].style.backgroundColor = '#233fff';
-           primaryButtons[range].style.color = 'white';
-
+        if(range == 0 ||
+           range == 1 ||
+           range == 2 ) {
+            primaryButtons[range].style.backgroundColor = '#233fff';
+            primaryButtons[range].style.color = 'white';
+        }
 
         // CHANGING THE WIDTH OF THE TOPBAR 
         currentWidth -= 3.03;
@@ -366,7 +342,8 @@ leftArrowLink.onclick = function () {
     }
 
     if (clickCounter == 1) {
-        eersteStelling();
+        eersteStelling(0);
+        clickCounter = 0;
     }
 
     if (clickCounter == 0) {
