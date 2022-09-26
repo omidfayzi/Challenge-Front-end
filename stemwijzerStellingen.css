@@ -247,18 +247,18 @@ main .buttonsContainer .skip:hover {
   text-align: center;
   font-weight: 800;
 }
-.extraOnderwerpenContainer .extraOnderwerpenMainContent {
+.extraOnderwerpenContainer .extraOnderwerpen {
   background-color: #f1f1f1;
-  height: 690px;
+  height: 800px;
   width: 1080px;
   border-radius: 40px;
   display: grid;
   grid-template-columns: 60px repeat(3, 300px) 90px;
-  grid-template-rows: 50px repeat(10, 50px);
+  grid-template-rows: 150px repeat(10, 50px);
   grid-gap: 5px 15px;
-  margin: 50px auto;
+  margin: 100px auto;
 }
-.extraOnderwerpenContainer .extraOnderwerpenMainContent .stellingKop {
+.extraOnderwerpenContainer .extraOnderwerpen .stellingKop {
   border-radius: 4px;
   cursor: pointer;
   width: 300px;
@@ -270,18 +270,52 @@ main .buttonsContainer .skip:hover {
   justify-content: left;
   cursor: pointer;
 }
-.extraOnderwerpenContainer .extraOnderwerpenMainContent .stellingKop input[type=checkbox] {
+.extraOnderwerpenContainer .extraOnderwerpen .stellingKop input[type=checkbox] {
   width: 20px;
   height: 80px;
   border-radius: 10px;
   background-color: #f1f1f1;
   margin: 0px 10px 0px 10px;
 }
-.extraOnderwerpenContainer .extraOnderwerpenMainContent #div0 {
+.extraOnderwerpenContainer .extraOnderwerpen .buttonContainer {
+  grid-column: 2/5;
+  grid-row: 1/2;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+.extraOnderwerpenContainer .extraOnderwerpen .buttonContainer .container1, .extraOnderwerpenContainer .extraOnderwerpen .buttonContainer .container2, .extraOnderwerpenContainer .extraOnderwerpen .buttonContainer .unselectButtton {
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+.extraOnderwerpenContainer .extraOnderwerpen .buttonContainer .unselectButtton {
+  background-color: darkgray;
+  color: white;
+  margin-left: 240px;
+}
+.extraOnderwerpenContainer .extraOnderwerpen .buttonContainer .container2 {
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  margin-left: 50px;
+}
+.extraOnderwerpenContainer .extraOnderwerpen .buttonContainer .label {
+  height: 20px;
+  margin: 10px;
+}
+.extraOnderwerpenContainer .extraOnderwerpen .buttonContainer .typeRadio {
+  border: none;
+  margin: 0px 20px 0px 20px;
+  background-color: rgb(241, 241, 241);
+}
+.extraOnderwerpenContainer .extraOnderwerpen #div0 {
   grid-column: 2/3;
   grid-row: 2/3;
 }
-.extraOnderwerpenContainer .extraOnderwerpenMainContent #div1 {
+.extraOnderwerpenContainer .extraOnderwerpen #div1 {
   grid-column: 2/3;
   grid-row: 3/4;
 }
@@ -403,4 +437,17 @@ main .buttonsContainer .skip:hover {
 }
 .extraOnderwerpenContainer .stellingKop:focus {
   border: 1px solid blue;
+}
+
+.partijenSelectie {
+  margin-top: 100px !important;
+}
+
+#extraOnderwerpenBeschrijving {
+  display: block;
+  line-height: 30px;
+}
+
+#bold {
+  font-weight: bold;
 }/*# sourceMappingURL=stemwijzerStellingen.css.map */

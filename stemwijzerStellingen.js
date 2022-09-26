@@ -121,17 +121,266 @@ const stellingen = [
     }
 ];
 
+var allePartijenArray = ["VVD", "PVV", "CDA", "D66", "GROENLINKS", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "DENK", "ForumvoorDemocratie", "BIJ1", "JA21", "CODEORANJE", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "OPRECHT", "JEZUSLEEFT", "TrotsopNederland", "U-BuntuConnectedFront", "BBB"]
+
+var allePartijenObject = [
+    {
+        VVD : 0
+    }, 
+    {
+        PVV : 0
+    }, 
+    {
+        CDA : 0
+    },
+    {
+        D66 : 0
+    }, 
+    {
+        GROENLINKS : 0
+    }, 
+    {
+        SP : 0
+    },
+    {
+        PartijvandeArbeid : 0 
+    },
+    {
+        ChristenUnie : 0
+    },
+    {
+        PartijvoordeDieren : 0
+    },
+    {
+        VIJFTIGPLUS : 0
+    }, 
+    {
+        SGP : 0
+    },
+    {
+        DENK : 0
+    },
+    {
+        ForumvoorDemocratie : 0
+    },
+    {
+        BIJ1 : 0
+    },
+    {
+        JA21 : 0
+    },
+    {
+        CODEORANJE : 0
+    }, 
+    {
+        Volt : 0
+    },
+    {
+        NIDA : 0
+    }, 
+    {
+        Piratenpartij : 0
+    }, 
+    {
+        JONG : 0
+    }, 
+    {
+        Splinter : 0
+    }, 
+    {
+        NLBeter : 0
+    },
+    {
+        LijstHenkKrol : 0
+    },
+    {
+        OPRECHT : 0
+    },
+    {
+        JEZUSLEEFT : 0
+    },
+    {
+        TrotsopNederland : 0
+    }, 
+    {
+        UBuntuConnectedFront : 0
+    },
+    {
+        BBB : 0
+    },
+
+]
+
+var zittendePartijenArray = ["checkbox0", "checkbox3", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox12", "checkbox8", "checkbox7", "checkbox16", "checkbox14", "checkbox10", "checkbox11", "checkbox9", "checkbox13"]
+
+
+// Eens - Geen van beiden - 2 
+var partijenMening = [
+    {
+        0 : ["VVD", "D66", "VIJFTIGPLUS", "BIJ1", "Volt", "LibertairePartij", "JONG", "NLBeter"], 
+        1 : [],
+        2 : ["PVV", "CDA", "GroenLinks", "SP", "PVAD", "ChristenUnie", "PartijVoorDeDieren", "SPG", "DENK", "ForumVoorDemocratie", "JA21", "CodeOranje", "NIDA", "Piratenpartij", "Splinter", "BoerBurgerBewegen", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"]
+    },
+    {
+        0 : ["VVD", "PVV", "CDA", "D66", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "Volt", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront"], 
+        1 : ["LibertairePartij", "JONG"],
+        2 : ["GroenLinks", "SP", "PartijVoorDeDieren", "DENK", "BLIJ1", "NIDA", "PiratenPartij", "JezusLeeft", "Lijst30"]
+    },
+    {
+        0 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : ["ChristenUnie", "DENK"],
+        2 : ["VVD", "PVV", "SGP", "ForumvoorDemocratie", "JA21", "LibertairePartij", "LijstHenkKrol", "JezusLeeft"]
+    },
+    {
+        0 : ["PVV", "ForumvoorDemocratie", "JezusLeeft"],
+        1 : ["CodeOranje", "LibertairePartij", "Lijst30"],
+        2 : ["VVD", "CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "DENK", "BIJ1", "JA21", "Volt", "NIDA", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront"]
+    },
+    {
+        0 : ["D66", "GroenLinks", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "BIJ1", "Volt", "NIDA", "LibertairePartij", "JONG", "Splinter", "NLBeter", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront"], 
+        1 : ["VVD", "JA21", "LijstHenkKrol"],
+        2 : ["PVV", "CDA", "SP", "ForumvoorDemocratie", "Code Oranje", "Piratenpartij", "BoerBurgerBeweging", "Lijst30"],
+    },
+    {
+        0 : ["VVD", "PVV", "CDA", "D66", "SP", "ForumvoorDemocratie", "JA21", "LibertairePartij", "BoerBurgerBeweging", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"], 
+        1 : ["LijstHenkKrol"],
+        2 : ["GroenLinks", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "BIJ1", "Volt", "NIDA", "JONG", "Splinter", "NLBeter", "JezusLeeft"],
+    },
+    {
+        0 : ["D66", "GroenLinks", "ChristenUnie", "PartijvoordeDieren", "Volt", "JONG", "Splinter"], 
+        1 : [],
+        2 : ["VVD", "PVV", "CDA", "SP", "PartijvandeArbeid", "VIJFTIGPLUS", "SGP", "DENK", "ForumvoorDemocratie", "BIJ1", "JA21", "Piratenpartij", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+    },
+    {
+        0 : ["VVD", "PVV", "SGP", "DENK", "ForumVoorDemocratie", "JA21", "CodeOranje", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"], 
+        1 : ["JONG"],
+        2 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "BIJ1", "Volt", "NIDA", "Piratenpartij", "Splinter", "NLBeter", "UBuntuConnectedFront"],
+    },
+    {
+        0 : ["GroenLinks", "SP", "PartijvoordeDieren", "DENK", "BIJ1", "CodeOranje", "NIDA", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"], 
+        1 : ["PVV"],
+        2 : ["VVD", "CDA", "ChristenUnie", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "Volt", "LibertairePartij", "JezusLeeft"],
+    },
+    {
+        0 : ["D66", "GroenLinks", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij"],
+        1 : [],
+        2 : ["VVD", "PVV", "CDA", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+    },
+    {
+        0 : ["VVD", "PVV", "CDA", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "DENK"],
+        1 : ["SP", "LijstHenkKrol", "Oprecht"],
+        2 : ["D66", "GroenLinks", "ChristenUnie", "SGP", "ForumvoorDemocratie", "BIJ1", "JA21", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+    },
+    {
+        0 : ["D66", "GroenLinks", "SP", "PartijvoordeDieren", "VIJFTIGPLUS", "DENK", "BIJ1", "NIDA", "Piratenpartij", "LibertairePartij", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : [],
+        2 : ["PVV", "CDA", "Partij van de Arbeid", "ChristenUnie", "SGP", "Forum voor Democratie", "JA21", "JONG"],
+ 
+    },
+    {
+        0 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "CodeOranje", "JONG", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "TrotsopNederland"],
+        1 : [],
+        2 : ["D66", "ChristenUnie", "NIDA", "Piratenpartij", "Splinter", "NLBeter", "Lijst30", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "DENK", "BIJ1", "JezusLeeft", "UBuntuConnectedFront"],
+    },
+    {
+        0 : ["CDA", "D66", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "Piratenpartij", "Splinter", "JezusLeeft", "UBuntuConnectedFront", "Lijst30"],
+        1 : ["PVV", "GroenLinks", "SGP", "JA21", "Libertaire Partij", "Oprecht"],
+        2 : ["BIJ1", "CodeOranje", "NIDA", "JONG", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "TrotsopNederland"],
+    },
+    {
+        0 : ["PVV", "CDA", "SP", "ChristenUnie", "PartijvoordeDieren", "SGP", "DENK", "BIJ1", "JA21", "NIDA", "Piratenpartij", "LibertairePartij", "Splinter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : [],
+        2 :["D66", "GroenLinks", "PartijvandeArbeid", "VIJFTIGPLUS", "CodeOranje", "Volt", "JONG", "BoerBurgerBeweging", "NLBeter"],
+    },
+    {
+        0 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "NIDA", "Piratenpartij", "JONG", "UBuntuConnectedFront"],
+        1 : [],
+        2 :["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+    },
+    {
+        0 : ["PVV", "D66", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "ForumvoorDemocratie", "JA21", "CodeOranje", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : [],
+        2 :["VVD", "CDA", "GroenLinks", "SGP", "BIJ1", "Volt", "NIDA"],
+ 
+    },
+    {
+        0 : ["PVV", "CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "DENK", "BIJ1", "CodeOranje", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "TrotsopNederland", "UBuntuConnectedFront"],
+        1 : ["VVD"],
+        2 : ["JA21", "Volt", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "Lijst30"],
+    },
+    {
+        0 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland"],
+        1 : [],
+        2 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "Volt", "NIDA", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "JezusLeeft", "UBuntuConnectedFront", "Lijst30"],
+    },
+    {
+        0 : ["D66", "GroenLinks", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "SGP", "BIJ1", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "Oprecht", "JezusLeeft"],
+        1 : [],
+        2 : ["VVD", "PVV", "CDA", "SP", "VIJFTIGPLUS", "JA21", "CodeOranje", "NIDA", "LibertairePartij", "LijstHenkKrol", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+ 
+    },
+    {
+        0 : ["VVD", "PVV", "CDA", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "ForumvoorDemocratie", "CodeOranje", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "Lijst30"],
+        1 : ["LibertairePartij", "JezusALeeft"],
+        2 : ["SP", "Partij voor de Dieren", "SGP", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij", "UBuntu Connected Front"],
+    },
+    {
+        0 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "ForumvoorDemocratie", "CodeOranje", "Volt", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "Lijs HenkKrol", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : ["VVD"],
+        2 : ["PVV", "CDA", "ChristenUnie", "SGP", "DENK", "NIDA", "Oprecht", "Jezus Leeft"], 
+    },
+    {
+        0 : ["VVD", "PVV", "CDA", "D66", "GroenLinks", "PartijvandeArbeid", "ChristenUnie", "SGP", "ForumvoorDemocratie", "JA21", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        1 : ["SP"],
+        2 : ["DENK", "BIJ1", "CodeOranje", "Volt", "NIDA", "Piratenpartij", "LibertairePartij", "JONG", "UBuntuConnectedFront"],
+    },
+    {
+        0 : ["LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "Lijst Henk Krol", "Trots op Nederland", "UBuntuConnectedFront", "Lijst30", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "LijstHenkKrol", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : ["PVV", "Volt", "Oprecht"],
+        2 : ["ChristenUnie", "SGP", "DENK", "ForumvoorDemocratie", "JA21", "NIDA", "NLBeter", "JezusLeeft"],
+    },
+    {
+        0 : ["VVD", "PVV", "SGP", "ForumvoorDemocratie", "JA21", "CodeOranje", "BoerBurgerBeweging", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        1 : ["LibertairePartij", "UBuntuConnectedFront"],
+        2 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "VIJFTIGPLUS", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "LijstHenkKrol"],
+    },
+    {
+        0 : ["PVV", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "CodeOranje", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : ["SGP"],
+        2 : ["D66", "ForumvoorDemocratie", "JA21", "Volt", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "JezusLeeft"],
+    }
+    ,
+    {
+        0 : ["VVD", "PVV", "CDA", "SGP", "ForumvoorDemocratie", "JA21", "CodeOranje", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        1 : ["ChristenUnie"],
+        2 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "UBuntuConnectedFront"],
+    }
+    ,
+    {
+        0 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "BIJ1", "Volt", "NIDA", "Piratenpartij", "Splinter", "BoerBurgerBeweging", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        1 : ["Oprecht"],
+        2 : ["PVV", "VVD", "ChristenUnie", "SGP", "Forum voor Democratie", "JA21", "Code Oranje", "Libertaire Partij", "JONG", "NLBeter", "Lijst Henk Krol"],
+    },
+    {
+        0 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "NIDA", "Piratenpartij", "NLBeter", "UBuntuConnectedFront"],
+        1 : [],
+        2 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "JONG", "Splinter", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+    },
+    {
+        0 : ["PartijvoordeDieren", "SGP", "DENK", "ForumvoorDemocratie", "Code Oranje", "NIDA", "Piratenpartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        1 : ["JA21"],
+        2 : ["VVD", "PVV", "CDA", "D66", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "BIJ1", "Volt", "JONG", "NLBeter", "UBuntuConnectedFront"],
+    }
+]
+
 
 // console.log(stellingen)
 
 var extraStappen = [
     {
-        titel : 'Zijn er onderwerpen die je extra belangrijk vindt?',
-        beschrijving : '/ 30 stellingen geselecteerd'
-    },
-    {
         titel : 'Welke partijen wil je meenemen in het resultaat?',
-        beschrijving : 'Kies alle partijen, alleen de partijen die nu al in de Tweede Kamer zitten, of maak zelf een selectie. Selecteer minimaal 3 partijen.'
+        beschrijving : 'Kies alle partijen, alleen de partijen die nu al in de Tweede Kamer zitten, of maak zelf een selectie.',
+        aantal : 'Selecteer minimaal 3 partijen'
     },
 ]
 
@@ -162,12 +411,13 @@ var extraOnderwerpenTitel = document.getElementById('extraOnderwerpenTitel');
 var checkCounter = document.getElementById('checkCounter');
 var nextButton = document.querySelector('.nextButton');
 var extraOnderwerpenBeschrijving = document.getElementById('extraOnderwerpenBeschrijving');
+var geselecteerdePartijen = document.getElementById('geselecteerdePartijen');
 
 var checkCounterVar = 0;
 var clickCounter = 1;
 
 
-// EERSTE STELLING OP HET SCHERM LATEN TONEN
+// FUNCTION FOR THE FIRST STELLING
 function eersteStelling (stellingNummer) {
     stelling_titel.innerText = stellingen[stellingNummer].stelling_kop;
     stelling_inhoud.innerHTML = stellingen[stellingNummer].stelling;
@@ -176,14 +426,95 @@ function eersteStelling (stellingNummer) {
 eersteStelling(0);
 
 
-// MAIN FUNCTIE 
+// FUNCTION FOR DISPLAYING STELLINGEN 
 function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappenBeschrijving, displayOfP) {
     extraOnderwerpenContainer.style.display = displayAntwoord;
     extraOnderwerpenTitel.innerText = extraStappenTitel;
-    extraOnderwerpenBeschrijving.innerHTML = '<span id="checkedAmount">0</span>' + extraStappenBeschrijving;
+    extraOnderwerpenBeschrijving.innerHTML =  extraStappenBeschrijving;
+    geselecteerdePartijen.innerHTML = '<span id="checkedAmount">0</span> van de <span id="bold">28</span>'
     checkCounter.style.display = displayOfP;
 
-    var maxNumber = stellingen.length - 1;
+
+    var radioContainer = document.createElement("div");
+    radioContainer.setAttribute("class", "buttonContainer")
+    extraOnderwerpenMainContent.appendChild(radioContainer);
+
+    var container1 = document.createElement("div");
+    container1.setAttribute("class", "container1")
+    radioContainer.appendChild(container1);
+
+    var container2 = document.createElement("div");
+    container2.setAttribute("class", "container2")
+    radioContainer.appendChild(container2);
+    
+    var unselectButtton = document.createElement("button");
+    unselectButtton.innerText = "Deselecteer alles"
+    unselectButtton.setAttribute("class", "unselectButtton");
+
+    radioContainer.appendChild(unselectButtton)
+
+    unselectButtton.addEventListener("click", function() {
+        for(item of checkboxes) {
+            item.checked = false
+        }
+        
+        inzittendePartijen.checked = false;
+        allePartijenSelectie.checked = false;
+        checkedAmount.innerText = 0;
+    })
+
+    var labelInzittendePartijen = document.createElement("label");
+    labelInzittendePartijen.innerText = "Alle inzittende partijen"
+    labelInzittendePartijen.setAttribute("for", "inzittendePartijen")
+    labelInzittendePartijen.setAttribute("class", "label")
+    container1.appendChild(labelInzittendePartijen)
+
+    var inzittendePartijen = document.createElement("input");
+    inzittendePartijen.setAttribute("type", "radio")
+    inzittendePartijen.setAttribute("name", "inzittendePartijen")
+    inzittendePartijen.setAttribute("class", "typeRadio")
+    container1.appendChild(inzittendePartijen)
+
+
+    var labelAllePartijenSelectie = document.createElement("label");
+    labelAllePartijenSelectie.innerText = "Alle partijen"
+    labelAllePartijenSelectie.setAttribute("for", "allePartijenSelectie")
+    labelAllePartijenSelectie.setAttribute("class", "label")
+    container2.appendChild(labelAllePartijenSelectie)
+
+    var allePartijenSelectie = document.createElement("input");
+    allePartijenSelectie.setAttribute("type", "radio")
+    allePartijenSelectie.setAttribute("name", "allePartijenSelectie")
+    allePartijenSelectie.setAttribute("class", "typeRadio")
+    container2.appendChild(allePartijenSelectie)
+
+    
+    allePartijenSelectie.onchange = function radioCheck1() {
+        for(item of checkboxes) {
+            item.checked = true;
+        }
+
+        checkedAmount.innerText = 28;
+        inzittendePartijen.checked = false;
+    }
+
+    inzittendePartijen.onchange = function radioCheck2() {
+        for(item of checkboxes) {
+            item.checked = false
+        }
+        for(item of checkboxes) {
+            for(i = 0; i < zittendePartijenArray.length; i++) {
+                if(item.id == zittendePartijenArray[i]) {
+                    item.checked = true; 
+                } 
+            }
+        }
+        checkedAmount.innerText = zittendePartijenArray.length;
+        allePartijenSelectie.checked = false;
+    }
+
+
+    var maxNumber = stellingen.length - 2;
     checkCounterVar = 0;
 
     for(i = 0; i < maxNumber; i++) {
@@ -194,18 +525,17 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
         checkBoxElement.setAttribute('type', 'checkbox');
         checkBoxElement.setAttribute('id', 'checkbox' + i);
         checkBoxElement.setAttribute('onchange', 'checkForChanges(this)');
-        checkBoxElement.classList.add('checked');
+        checkBoxElement.classList.add('checked', 'checkedCheckboxes');
 
         checkCounter.innerHTML = `${checkCounterVar}`;
 
-        divElement.innerText = stellingen[i + 1].stelling_kop;
+        divElement.innerText = allePartijenArray[i];
         divElement.classList.add('stellingKop');
         divElement.setAttribute('id', 'div' + i)
 
         divElement.appendChild(checkBoxElement);
         extraOnderwerpenMainContent.appendChild(divElement);
     } 
-    var checkbox21 = document.getElementById('checkbox21');
 }
 
 function checkForChanges(currentCheckBox) {
@@ -231,8 +561,13 @@ function displayStelling (clickCounter, buttonValue, thisButton, style) {
 } 
 
 
-// FUNCTIE VOOR ELKE PRIMARY BUTTON 
+// FUNCTION FOR EACAH PRIMARY BUTTON 
 var currentWidth = 3.3;
+
+var randomNumber;
+
+var selectieVanPartijen = []
+var allePartijen = []
 
 primaryButtons.forEach(function displayItem (item, index, object) {
     item.onclick = function (e) {
@@ -244,7 +579,7 @@ primaryButtons.forEach(function displayItem (item, index, object) {
 
             displayStelling(clickCounter, buttonValue, thisButton, 'block');
 
-            console.log(clickCounter)
+            // console.log(clickCounter)
         
             // CHANGING THE WIDTH OF THE TOPBAR 
             currentWidth += 3.03;
@@ -256,14 +591,215 @@ primaryButtons.forEach(function displayItem (item, index, object) {
             // CALCULATION OF CLICK COUNT
             clickCounter ++;
         }   else if (clickCounter >= 30 ) {
-
+            
             var buttonValue = e.target.value;
-
             antwoorden.push(buttonValue);
 
             main_content.style.display = 'none';
             buttonsContainer.style.display = 'none';
             displayResults ('', 'block', extraStappen[0].titel, extraStappen[0].beschrijving, 'none');
+
+           
+            function calculation() {
+
+                var reversed = selectieVanPartijen.reverse();
+    
+                for(i = 0; i < antwoorden.length; i++) {
+                    randomNumber = antwoorden[i]
+                }
+    
+                for(key of partijenMening) {
+                    reversed.push(key[randomNumber])
+                }
+
+                // EACH ITEM WILL BE PUSHED INSIDE THE allePartijen
+                
+                var array0 = reversed[0]
+                var array1 = reversed[1]
+
+                for(i = 0; i < array0.length; i++) {
+                    allePartijen.push(array0[i])
+                }
+
+                var array1 = reversed[1]
+
+                for(i = 0; i < array1.length; i++) {
+                    allePartijen.push(array1[i])
+                }
+
+                var array2 = reversed[2]
+
+                for(i = 0; i < array2.length; i++) {
+                    allePartijen.push(array2[i])
+                }
+
+                var array3 = reversed[3]
+
+                for(i = 0; i < array3.length; i++) {
+                    allePartijen.push(array3[i])
+                }
+
+                var array4 = reversed[4]
+
+                for(i = 0; i < array4.length; i++) {
+                    allePartijen.push(array4[i])
+                }
+
+                var array5 = reversed[5]
+
+                for(i = 0; i < array5.length; i++) {
+                    allePartijen.push(array5[i])
+                }
+
+                var array6 = reversed[6]
+
+                for(i = 0; i < array6.length; i++) {
+                    allePartijen.push(array6[i])
+                }
+
+                var array7 = reversed[7]
+
+                for(i = 0; i < array7.length; i++) {
+                    allePartijen.push(array7[i])
+                }
+
+                var array8 = reversed[8]
+
+                for(i = 0; i < array8.length; i++) {
+                    allePartijen.push(array8[i])
+                }
+
+                var array9 = reversed[9]
+
+                for(i = 0; i < array9.length; i++) {
+                    allePartijen.push(array9[i])
+                }
+
+                var array10 = reversed[10]
+
+                for(i = 0; i < array10.length; i++) {
+                    allePartijen.push(array10[i])
+                }
+
+                var array11 = reversed[11]
+
+                for(i = 0; i < array11.length; i++) {
+                    allePartijen.push(array11[i])
+                }
+
+                var array12 = reversed[12]
+
+                for(i = 0; i < array12.length; i++) {
+                    allePartijen.push(array12[i])
+                }
+
+                var array13 = reversed[13]
+
+                for(i = 0; i < array13.length; i++) {
+                    allePartijen.push(array13[i])
+                }
+
+                var array14 = reversed[14]
+
+                for(i = 0; i < array14.length; i++) {
+                    allePartijen.push(array14[i])
+                }
+
+                var array15 = reversed[15]
+
+                for(i = 0; i < array15.length; i++) {
+                    allePartijen.push(array15[i])
+                }
+
+                var array16 = reversed[16]
+
+                for(i = 0; i < array16.length; i++) {
+                    allePartijen.push(array16[i])
+                }
+
+                var array17 = reversed[17]
+
+                for(i = 0; i < array17.length; i++) {
+                    allePartijen.push(array17[i])
+                }
+
+                var array18 = reversed[18]
+
+                for(i = 0; i < array18.length; i++) {
+                    allePartijen.push(array18[i])
+                }
+
+                var array19 = reversed[19]
+
+                for(i = 0; i < array19.length; i++) {
+                    allePartijen.push(array19[i])
+                }
+
+                var array20 = reversed[20]
+
+                for(i = 0; i < array20.length; i++) {
+                    allePartijen.push(array20[i])
+                }
+
+                var array21 = reversed[21]
+
+                for(i = 0; i < array21.length; i++) {
+                    allePartijen.push(array21[i])
+                }
+
+                var array22 = reversed[22]
+
+                for(i = 0; i < array22.length; i++) {
+                    allePartijen.push(array22[i])
+                }
+
+                var array23 = reversed[23]
+
+                for(i = 0; i < array23.length; i++) {
+                    allePartijen.push(array23[i])
+                }
+
+                var array24 = reversed[24]
+
+                for(i = 0; i < array24.length; i++) {
+                    allePartijen.push(array24[i])
+                }
+
+                var array25 = reversed[25]
+
+                for(i = 0; i < array25.length; i++) {
+                    allePartijen.push(array25[i])
+                }
+
+                var array26 = reversed[26]
+
+                for(i = 0; i < array26.length; i++) {
+                    allePartijen.push(array26[i])
+                }
+
+                var array27 = reversed[27]
+
+                for(i = 0; i < array27.length; i++) {
+                    allePartijen.push(array27[i])
+                }
+
+                var array28 = reversed[28]
+
+                for(i = 0; i < array28.length; i++) {
+                    allePartijen.push(array28[i])
+                }
+
+                var array29 = reversed[29]
+
+                for(i = 0; i < array29.length; i++) {
+                    allePartijen.push(array29[i])
+                }
+                
+                console.log(partijenMening)
+
+                console.log(allePartijen)
+            }
+            calculation()
             
         }
         
@@ -271,7 +807,7 @@ primaryButtons.forEach(function displayItem (item, index, object) {
 })
 
 
-// FUNCTIE VOOR HET OVERSLAAN BUTTON 
+// FUNCTION FOR SKIPBUTTON 
 
 skipButton.onclick = function () {
     clickCounter - 1;
@@ -298,8 +834,8 @@ skipButton.onclick = function () {
     }
 }
 
-// FUNCTIE VOOR HET PIJL NAAR RECHTS
 
+// FUNCTION FOR LEFT ARROW BUTTON 
 
 leftArrowLink.onclick = function () {
     Number(clickCounter -1)
@@ -351,7 +887,9 @@ leftArrowLink.onclick = function () {
     }
 }
 
+var checkedCheckboxex = document.querySelectorAll(".checkedCheckboxes")
 
 nextButton.addEventListener("click", function(){
-    displayResults ('', 'block', extraStappen[1].titel, extraStappen[1].beschrijving), 'block';
+    console.log(checkedCheckboxex)
+
 })
