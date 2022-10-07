@@ -123,94 +123,6 @@ const stellingen = [
 
 var allePartijenArray = ["VVD", "PVV", "CDA", "D66", "GROENLINKS", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "DENK", "ForumvoorDemocratie", "BIJ1", "JA21", "CODEORANJE", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "OPRECHT", "JEZUSLEEFT", "TrotsopNederland", "U-BuntuConnectedFront", "BBB"]
 
-var allePartijenObject = [
-    {
-        VVD : 0
-    }, 
-    {
-        PVV : 0
-    }, 
-    {
-        CDA : 0
-    },
-    {
-        D66 : 0
-    }, 
-    {
-        GROENLINKS : 0
-    }, 
-    {
-        SP : 0
-    },
-    {
-        PartijvandeArbeid : 0 
-    },
-    {
-        ChristenUnie : 0
-    },
-    {
-        PartijvoordeDieren : 0
-    },
-    {
-        VIJFTIGPLUS : 0
-    }, 
-    {
-        SGP : 0
-    },
-    {
-        DENK : 0
-    },
-    {
-        ForumvoorDemocratie : 0
-    },
-    {
-        BIJ1 : 0
-    },
-    {
-        JA21 : 0
-    },
-    {
-        CODEORANJE : 0
-    }, 
-    {
-        Volt : 0
-    },
-    {
-        NIDA : 0
-    }, 
-    {
-        Piratenpartij : 0
-    }, 
-    {
-        JONG : 0
-    }, 
-    {
-        Splinter : 0
-    }, 
-    {
-        NLBeter : 0
-    },
-    {
-        LijstHenkKrol : 0
-    },
-    {
-        OPRECHT : 0
-    },
-    {
-        JEZUSLEEFT : 0
-    },
-    {
-        TrotsopNederland : 0
-    }, 
-    {
-        UBuntuConnectedFront : 0
-    },
-    {
-        BBB : 0
-    },
-
-]
-
 var zittendePartijenArray = ["checkbox0", "checkbox3", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox12", "checkbox8", "checkbox7", "checkbox16", "checkbox14", "checkbox10", "checkbox11", "checkbox9", "checkbox13"]
 
 
@@ -416,6 +328,8 @@ var geselecteerdePartijen = document.getElementById('geselecteerdePartijen');
 var checkCounterVar = 0;
 var clickCounter = 1;
 
+var arrayOfCheckedCheckboxex = []
+
 
 // FUNCTION FOR THE FIRST STELLING
 function eersteStelling (stellingNummer) {
@@ -456,15 +370,17 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     unselectButtton.addEventListener("click", function() {
         for(item of checkboxes) {
             item.checked = false
+            item.classList.remove("checkedCheckboxes")
         }
         
         inzittendePartijen.checked = false;
         allePartijenSelectie.checked = false;
         checkedAmount.innerText = 0;
+        arrayOfCheckedCheckboxex = []
     })
 
     var labelInzittendePartijen = document.createElement("label");
-    labelInzittendePartijen.innerText = "Alle inzittende partijen"
+    labelInzittendePartijen.innerText = "Zittende partijen"
     labelInzittendePartijen.setAttribute("for", "inzittendePartijen")
     labelInzittendePartijen.setAttribute("class", "label")
     container1.appendChild(labelInzittendePartijen)
@@ -473,6 +389,7 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     inzittendePartijen.setAttribute("type", "radio")
     inzittendePartijen.setAttribute("name", "inzittendePartijen")
     inzittendePartijen.setAttribute("class", "typeRadio")
+    inzittendePartijen.setAttribute("id", "radio1")
     container1.appendChild(inzittendePartijen)
 
 
@@ -486,12 +403,14 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     allePartijenSelectie.setAttribute("type", "radio")
     allePartijenSelectie.setAttribute("name", "allePartijenSelectie")
     allePartijenSelectie.setAttribute("class", "typeRadio")
+    inzittendePartijen.setAttribute("id", "radio2")
     container2.appendChild(allePartijenSelectie)
 
     
     allePartijenSelectie.onchange = function radioCheck1() {
         for(item of checkboxes) {
             item.checked = true;
+            item.classList.add("checkedCheckboxes")
         }
 
         checkedAmount.innerText = 28;
@@ -501,11 +420,13 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     inzittendePartijen.onchange = function radioCheck2() {
         for(item of checkboxes) {
             item.checked = false
+            item.classList.remove("checkedCheckboxes")
         }
         for(item of checkboxes) {
             for(i = 0; i < zittendePartijenArray.length; i++) {
                 if(item.id == zittendePartijenArray[i]) {
                     item.checked = true; 
+                    item.classList.add("checkedCheckboxes")
                 } 
             }
         }
@@ -524,8 +445,9 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
 
         checkBoxElement.setAttribute('type', 'checkbox');
         checkBoxElement.setAttribute('id', 'checkbox' + i);
+        checkBoxElement.setAttribute('value', allePartijenArray[i])
         checkBoxElement.setAttribute('onchange', 'checkForChanges(this)');
-        checkBoxElement.classList.add('checked', 'checkedCheckboxes');
+        checkBoxElement.classList.add('checked');
 
         checkCounter.innerHTML = `${checkCounterVar}`;
 
@@ -538,11 +460,18 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     } 
 }
 
+
 function checkForChanges(currentCheckBox) {
+    var radio2 = document.getElementById("radio2");
     if(currentCheckBox.checked) {
+        currentCheckBox.setAttribute("class", "checked checkedCheckboxes")
+        if(radio2.checked == true) {
+            checkCounterVar = Number(zittendePartijenArray.length);
+        } 
         checkCounterVar += 1;
     } else {
         checkCounterVar -= 1;
+        item.classList.remove("checkedCheckboxes")
     }
     console.log(checkCounterVar)
     document.getElementById('checkedAmount').innerText = checkCounterVar;
@@ -582,7 +511,7 @@ primaryButtons.forEach(function displayItem (item, index, object) {
             // console.log(clickCounter)
         
             // CHANGING THE WIDTH OF THE TOPBAR 
-            currentWidth += 3.03;
+            currentWidth += 3.225;
             topBar.style.width = currentWidth + '%';
 
             // CHANGING THE NUMBER OF THE CURRENT QUESTION
@@ -591,7 +520,9 @@ primaryButtons.forEach(function displayItem (item, index, object) {
             // CALCULATION OF CLICK COUNT
             clickCounter ++;
         }   else if (clickCounter >= 30 ) {
-            
+            topBar.style.width = 100 + '%';
+            currentQuestionNumber.innerText = 30;
+
             var buttonValue = e.target.value;
             antwoorden.push(buttonValue);
 
@@ -794,10 +725,6 @@ primaryButtons.forEach(function displayItem (item, index, object) {
                 for(i = 0; i < array29.length; i++) {
                     allePartijen.push(array29[i])
                 }
-                
-                console.log(partijenMening)
-
-                console.log(allePartijen)
             }
             calculation()
             
@@ -815,7 +742,7 @@ skipButton.onclick = function () {
         displayStelling(clickCounter, '3', 'block');
         
         // CHANGING THE WIDTH OF THE TOPBAR 
-        currentWidth += 3.03;
+        currentWidth += 3.225;
         topBar.style.width = currentWidth + '%';
 
         // CHANGING THE NUMBER OF THE CURRENT QUESTION
@@ -866,7 +793,7 @@ leftArrowLink.onclick = function () {
         }
 
         // CHANGING THE WIDTH OF THE TOPBAR 
-        currentWidth -= 3.03;
+        currentWidth -= 3.225;
         clickCounter -= 1;
         topBar.style.width = currentWidth + '%';
 
@@ -887,9 +814,27 @@ leftArrowLink.onclick = function () {
     }
 }
 
-var checkedCheckboxex = document.querySelectorAll(".checkedCheckboxes")
+var extraOnderwerpenContainer = document.querySelector(".extraOnderwerpenContainer");
 
-nextButton.addEventListener("click", function(){
-    console.log(checkedCheckboxex)
+nextButton.addEventListener("click", function(){ 
+    var checkboxes = document.querySelectorAll('.checked');
+
+    for(key of checkboxes) {
+        if(key.classList.contains("checkedCheckboxes")) {
+            arrayOfCheckedCheckboxex.push(key)
+        }
+    }
+
+    extraOnderwerpenContainer.style.display = "none"
+
+    for(key of allePartijen) {
+        console.log(key)
+    }
+
+    console.log('')
+
+    for(key of arrayOfCheckedCheckboxex) {
+        console.log(key.value)
+    }
 
 })
