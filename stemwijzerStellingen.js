@@ -121,167 +121,166 @@ const stellingen = [
     }
 ];
 
-var allePartijenArray = ["VVD", "PVV", "CDA", "D66", "GROENLINKS", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "DENK", "ForumvoorDemocratie", "BIJ1", "JA21", "CODEORANJE", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "OPRECHT", "JEZUSLEEFT", "TrotsopNederland", "U-BuntuConnectedFront", "BBB"]
+var allePartijenArray = ["VVD", "PVV", "CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "SGP", "DENK", "ForumVoorDemocratie", "BIJ1", "JA21", "CodeOranje", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "BBB"]
 
 var zittendePartijenArray = ["checkbox0", "checkbox3", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox12", "checkbox8", "checkbox7", "checkbox16", "checkbox14", "checkbox10", "checkbox11", "checkbox9", "checkbox13"]
-
 
 // Eens - Geen van beiden - 2 
 var partijenMening = [
     {
         0 : ["VVD", "D66", "VIJFTIGPLUS", "BIJ1", "Volt", "LibertairePartij", "JONG", "NLBeter"], 
         1 : [],
-        2 : ["PVV", "CDA", "GroenLinks", "SP", "PVAD", "ChristenUnie", "PartijVoorDeDieren", "SPG", "DENK", "ForumVoorDemocratie", "JA21", "CodeOranje", "NIDA", "Piratenpartij", "Splinter", "BoerBurgerBewegen", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"]
+        2 : ["PVV", "CDA", "GroenLinks", "SP", "PVAD", "ChristenUnie", "PartijVoorDeDieren", "SPG", "DENK", "ForumVoorDemocratie", "JA21", "CodeOranje", "NIDA", "Piratenpartij", "Splinter", "BBB", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"]
     },
     {
-        0 : ["VVD", "PVV", "CDA", "D66", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "Volt", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront"], 
+        0 : ["VVD", "PVV", "CDA", "D66", "PartijVandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "SGP", "ForumVoorDemocratie", "Volt", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsOpNederland", "UBuntuConnectedFront"], 
         1 : ["LibertairePartij", "JONG"],
-        2 : ["GroenLinks", "SP", "PartijVoorDeDieren", "DENK", "BLIJ1", "NIDA", "PiratenPartij", "JezusLeeft", "Lijst30"]
+        2 : ["GroenLinks", "SP", "PartijVoorDeDieren", "DENK", "BIJ1", "NIDA", "PiratenPartij", "JezusLeeft", "Lijst30"]
     },
     {
-        0 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "PartijVoorDeDieren", "VIJFTIGPLUS", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "BBB", "NLBeter", "Oprecht", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : ["ChristenUnie", "DENK"],
-        2 : ["VVD", "PVV", "SGP", "ForumvoorDemocratie", "JA21", "LibertairePartij", "LijstHenkKrol", "JezusLeeft"]
+        2 : ["VVD", "PVV", "SGP", "ForumVoorDemocratie", "JA21", "LibertairePartij", "LijstHenkKrol", "JezusLeeft"]
     },
     {
-        0 : ["PVV", "ForumvoorDemocratie", "JezusLeeft"],
+        0 : ["PVV", "ForumVoorDemocratie", "JezusLeeft"],
         1 : ["CodeOranje", "LibertairePartij", "Lijst30"],
-        2 : ["VVD", "CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "DENK", "BIJ1", "JA21", "Volt", "NIDA", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront"]
+        2 : ["VVD", "CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "SGP", "DENK", "BIJ1", "JA21", "Volt", "NIDA", "JONG", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsOpNederland", "UBuntuConnectedFront"]
     },
     {
-        0 : ["D66", "GroenLinks", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "BIJ1", "Volt", "NIDA", "LibertairePartij", "JONG", "Splinter", "NLBeter", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront"], 
+        0 : ["D66", "GroenLinks", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "SGP", "BIJ1", "Volt", "NIDA", "LibertairePartij", "JONG", "Splinter", "NLBeter", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront"], 
         1 : ["VVD", "JA21", "LijstHenkKrol"],
-        2 : ["PVV", "CDA", "SP", "ForumvoorDemocratie", "Code Oranje", "Piratenpartij", "BoerBurgerBeweging", "Lijst30"],
+        2 : ["PVV", "CDA", "SP", "ForumVoorDemocratie", "CodeOranje", "Piratenpartij", "BBB", "Lijst30"],
     },
     {
-        0 : ["VVD", "PVV", "CDA", "D66", "SP", "ForumvoorDemocratie", "JA21", "LibertairePartij", "BoerBurgerBeweging", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"], 
+        0 : ["VVD", "PVV", "CDA", "D66", "SP", "ForumVoorDemocratie", "JA21", "LibertairePartij", "BBB", "Oprecht", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"], 
         1 : ["LijstHenkKrol"],
-        2 : ["GroenLinks", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "BIJ1", "Volt", "NIDA", "JONG", "Splinter", "NLBeter", "JezusLeeft"],
+        2 : ["GroenLinks", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "DENK", "BIJ1", "Volt", "NIDA", "JONG", "Splinter", "NLBeter", "JezusLeeft"],
     },
     {
-        0 : ["D66", "GroenLinks", "ChristenUnie", "PartijvoordeDieren", "Volt", "JONG", "Splinter"], 
+        0 : ["D66", "GroenLinks", "ChristenUnie", "PartijVoorDeDieren", "Volt", "JONG", "Splinter"], 
         1 : [],
-        2 : ["VVD", "PVV", "CDA", "SP", "PartijvandeArbeid", "VIJFTIGPLUS", "SGP", "DENK", "ForumvoorDemocratie", "BIJ1", "JA21", "Piratenpartij", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        2 : ["VVD", "PVV", "CDA", "SP", "PartijVandeArbeid", "VIJFTIGPLUS", "SGP", "DENK", "ForumVoorDemocratie", "BIJ1", "JA21", "Piratenpartij", "LibertairePartij", "BBB", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
     },
     {
-        0 : ["VVD", "PVV", "SGP", "DENK", "ForumVoorDemocratie", "JA21", "CodeOranje", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"], 
+        0 : ["VVD", "PVV", "SGP", "DENK", "ForumVoorDemocratie", "JA21", "CodeOranje", "LibertairePartij", "BBB", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"], 
         1 : ["JONG"],
-        2 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "BIJ1", "Volt", "NIDA", "Piratenpartij", "Splinter", "NLBeter", "UBuntuConnectedFront"],
+        2 : ["CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "BIJ1", "Volt", "NIDA", "Piratenpartij", "Splinter", "NLBeter", "UBuntuConnectedFront"],
     },
     {
-        0 : ["GroenLinks", "SP", "PartijvoordeDieren", "DENK", "BIJ1", "CodeOranje", "NIDA", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"], 
+        0 : ["GroenLinks", "SP", "PartijVoorDeDieren", "DENK", "BIJ1", "CodeOranje", "NIDA", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"], 
         1 : ["PVV"],
-        2 : ["VVD", "CDA", "ChristenUnie", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "Volt", "LibertairePartij", "JezusLeeft"],
+        2 : ["VVD", "CDA", "ChristenUnie", "VIJFTIGPLUS", "SGP", "ForumVoorDemocratie", "JA21", "Volt", "LibertairePartij", "JezusLeeft"],
     },
     {
         0 : ["D66", "GroenLinks", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij"],
         1 : [],
-        2 : ["VVD", "PVV", "CDA", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        2 : ["VVD", "PVV", "CDA", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "SGP", "ForumVoorDemocratie", "JA21", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
     },
     {
-        0 : ["VVD", "PVV", "CDA", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "DENK"],
+        0 : ["VVD", "PVV", "CDA", "PartijVandeArbeid", "PartijVoorDeDieren", "VIJFTIGPLUS", "DENK"],
         1 : ["SP", "LijstHenkKrol", "Oprecht"],
-        2 : ["D66", "GroenLinks", "ChristenUnie", "SGP", "ForumvoorDemocratie", "BIJ1", "JA21", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        2 : ["D66", "GroenLinks", "ChristenUnie", "SGP", "ForumVoorDemocratie", "BIJ1", "JA21", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BBB", "NLBeter", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
     },
     {
-        0 : ["D66", "GroenLinks", "SP", "PartijvoordeDieren", "VIJFTIGPLUS", "DENK", "BIJ1", "NIDA", "Piratenpartij", "LibertairePartij", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["D66", "GroenLinks", "SP", "PartijVoorDeDieren", "VIJFTIGPLUS", "DENK", "BIJ1", "NIDA", "Piratenpartij", "LibertairePartij", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : [],
-        2 : ["PVV", "CDA", "Partij van de Arbeid", "ChristenUnie", "SGP", "Forum voor Democratie", "JA21", "JONG"],
+        2 : ["PVV", "CDA", "Partij van de Arbeid", "ChristenUnie", "SGP", "ForumVoorDemocratie", "JA21", "JONG"],
  
     },
     {
-        0 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "CodeOranje", "JONG", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "TrotsopNederland"],
+        0 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumVoorDemocratie", "JA21", "CodeOranje", "JONG", "BBB", "LijstHenkKrol", "Oprecht", "TrotsOpNederland"],
         1 : [],
-        2 : ["D66", "ChristenUnie", "NIDA", "Piratenpartij", "Splinter", "NLBeter", "Lijst30", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "DENK", "BIJ1", "JezusLeeft", "UBuntuConnectedFront"],
+        2 : ["D66", "ChristenUnie", "NIDA", "Piratenpartij", "Splinter", "NLBeter", "Lijst30", "GroenLinks", "SP", "PartijVandeArbeid", "PartijVoorDeDieren", "DENK", "BIJ1", "JezusLeeft", "UBuntuConnectedFront"],
     },
     {
-        0 : ["CDA", "D66", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "Piratenpartij", "Splinter", "JezusLeeft", "UBuntuConnectedFront", "Lijst30"],
-        1 : ["PVV", "GroenLinks", "SGP", "JA21", "Libertaire Partij", "Oprecht"],
-        2 : ["BIJ1", "CodeOranje", "NIDA", "JONG", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "TrotsopNederland"],
+        0 : ["CDA", "D66", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "Piratenpartij", "Splinter", "JezusLeeft", "UBuntuConnectedFront", "Lijst30"],
+        1 : ["PVV", "GroenLinks", "SGP", "JA21", "LibertairePartij", "Oprecht"],
+        2 : ["BIJ1", "CodeOranje", "NIDA", "JONG", "BBB", "NLBeter", "LijstHenkKrol", "TrotsOpNederland"],
     },
     {
-        0 : ["PVV", "CDA", "SP", "ChristenUnie", "PartijvoordeDieren", "SGP", "DENK", "BIJ1", "JA21", "NIDA", "Piratenpartij", "LibertairePartij", "Splinter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["PVV", "CDA", "SP", "ChristenUnie", "PartijVoorDeDieren", "SGP", "DENK", "BIJ1", "JA21", "NIDA", "Piratenpartij", "LibertairePartij", "Splinter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : [],
-        2 :["D66", "GroenLinks", "PartijvandeArbeid", "VIJFTIGPLUS", "CodeOranje", "Volt", "JONG", "BoerBurgerBeweging", "NLBeter"],
+        2 :["D66", "GroenLinks", "PartijVandeArbeid", "VIJFTIGPLUS", "CodeOranje", "Volt", "JONG", "BBB", "NLBeter"],
     },
     {
-        0 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "NIDA", "Piratenpartij", "JONG", "UBuntuConnectedFront"],
+        0 : ["D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "DENK", "NIDA", "Piratenpartij", "JONG", "UBuntuConnectedFront"],
         1 : [],
-        2 :["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        2 :["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumVoorDemocratie", "JA21", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
     },
     {
-        0 : ["PVV", "D66", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "ForumvoorDemocratie", "JA21", "CodeOranje", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["PVV", "D66", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "ForumVoorDemocratie", "JA21", "CodeOranje", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : [],
         2 :["VVD", "CDA", "GroenLinks", "SGP", "BIJ1", "Volt", "NIDA"],
  
     },
     {
-        0 : ["PVV", "CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "DENK", "BIJ1", "CodeOranje", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "TrotsopNederland", "UBuntuConnectedFront"],
+        0 : ["PVV", "CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "DENK", "BIJ1", "CodeOranje", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "TrotsOpNederland", "UBuntuConnectedFront"],
         1 : ["VVD"],
-        2 : ["JA21", "Volt", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "Lijst30"],
+        2 : ["JA21", "Volt", "LibertairePartij", "BBB", "LijstHenkKrol", "Oprecht", "JezusLeeft", "Lijst30"],
     },
     {
-        0 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland"],
+        0 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumVoorDemocratie", "JA21", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsOpNederland"],
         1 : [],
-        2 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "Volt", "NIDA", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "JezusLeeft", "UBuntuConnectedFront", "Lijst30"],
+        2 : ["D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "DENK", "Volt", "NIDA", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "JezusLeeft", "UBuntuConnectedFront", "Lijst30"],
     },
     {
-        0 : ["D66", "GroenLinks", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "SGP", "BIJ1", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "Oprecht", "JezusLeeft"],
+        0 : ["D66", "GroenLinks", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "SGP", "BIJ1", "JONG", "Splinter", "BBB", "NLBeter", "Oprecht", "JezusLeeft"],
         1 : [],
-        2 : ["VVD", "PVV", "CDA", "SP", "VIJFTIGPLUS", "JA21", "CodeOranje", "NIDA", "LibertairePartij", "LijstHenkKrol", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        2 : ["VVD", "PVV", "CDA", "SP", "VIJFTIGPLUS", "JA21", "CodeOranje", "NIDA", "LibertairePartij", "LijstHenkKrol", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
  
     },
     {
-        0 : ["VVD", "PVV", "CDA", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "ForumvoorDemocratie", "CodeOranje", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsopNederland", "Lijst30"],
-        1 : ["LibertairePartij", "JezusALeeft"],
-        2 : ["SP", "Partij voor de Dieren", "SGP", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij", "UBuntu Connected Front"],
+        0 : ["VVD", "PVV", "CDA", "PartijVandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "ForumVoorDemocratie", "CodeOranje", "JONG", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "TrotsOpNederland", "Lijst30"],
+        1 : ["LibertairePartij", "JezusLeeft"],
+        2 : ["SP", "Partij voor de Dieren", "SGP", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij", "UBuntuConnectedFront"],
     },
     {
-        0 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "ForumvoorDemocratie", "CodeOranje", "Volt", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "NLBeter", "Lijs HenkKrol", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["D66", "GroenLinks", "SP", "PartijVandeArbeid", "PartijVoorDeDieren", "VIJFTIGPLUS", "ForumVoorDemocratie", "CodeOranje", "Volt", "Piratenpartij", "LibertairePartij", "JONG", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : ["VVD"],
-        2 : ["PVV", "CDA", "ChristenUnie", "SGP", "DENK", "NIDA", "Oprecht", "Jezus Leeft"], 
+        2 : ["PVV", "CDA", "ChristenUnie", "SGP", "DENK", "NIDA", "Oprecht", "JezusLeeft"], 
     },
     {
-        0 : ["VVD", "PVV", "CDA", "D66", "GroenLinks", "PartijvandeArbeid", "ChristenUnie", "SGP", "ForumvoorDemocratie", "JA21", "Splinter", "BoerBurgerBeweging", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        0 : ["VVD", "PVV", "CDA", "D66", "GroenLinks", "PartijVandeArbeid", "ChristenUnie", "SGP", "ForumVoorDemocratie", "JA21", "Splinter", "BBB", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
         1 : ["SP"],
         2 : ["DENK", "BIJ1", "CodeOranje", "Volt", "NIDA", "Piratenpartij", "LibertairePartij", "JONG", "UBuntuConnectedFront"],
     },
     {
-        0 : ["LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "Lijst Henk Krol", "Trots op Nederland", "UBuntuConnectedFront", "Lijst30", "LibertairePartij", "JONG", "Splinter", "BoerBurgerBeweging", "LijstHenkKrol", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["LibertairePartij", "JONG", "Splinter", "BBB", "LijstHenkKrol", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30", "LibertairePartij", "JONG", "Splinter", "BBB", "LijstHenkKrol", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : ["PVV", "Volt", "Oprecht"],
-        2 : ["ChristenUnie", "SGP", "DENK", "ForumvoorDemocratie", "JA21", "NIDA", "NLBeter", "JezusLeeft"],
+        2 : ["ChristenUnie", "SGP", "DENK", "ForumVoorDemocratie", "JA21", "NIDA", "NLBeter", "JezusLeeft"],
     },
     {
-        0 : ["VVD", "PVV", "SGP", "ForumvoorDemocratie", "JA21", "CodeOranje", "BoerBurgerBeweging", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        0 : ["VVD", "PVV", "SGP", "ForumVoorDemocratie", "JA21", "CodeOranje", "BBB", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
         1 : ["LibertairePartij", "UBuntuConnectedFront"],
-        2 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "VIJFTIGPLUS", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "LijstHenkKrol"],
+        2 : ["CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "VIJFTIGPLUS", "DENK", "BIJ1", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "LijstHenkKrol"],
     },
     {
-        0 : ["PVV", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "VIJFTIGPLUS", "CodeOranje", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "Oprecht", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["PVV", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "CodeOranje", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "Oprecht", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : ["SGP"],
-        2 : ["D66", "ForumvoorDemocratie", "JA21", "Volt", "LibertairePartij", "BoerBurgerBeweging", "LijstHenkKrol", "JezusLeeft"],
+        2 : ["D66", "ForumVoorDemocratie", "JA21", "Volt", "LibertairePartij", "BBB", "LijstHenkKrol", "JezusLeeft"],
     }
     ,
     {
-        0 : ["VVD", "PVV", "CDA", "SGP", "ForumvoorDemocratie", "JA21", "CodeOranje", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        0 : ["VVD", "PVV", "CDA", "SGP", "ForumVoorDemocratie", "JA21", "CodeOranje", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
         1 : ["ChristenUnie"],
-        2 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "UBuntuConnectedFront"],
+        2 : ["D66", "GroenLinks", "SP", "PartijVandeArbeid", "PartijVoorDeDieren", "VIJFTIGPLUS", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "UBuntuConnectedFront"],
     }
     ,
     {
-        0 : ["CDA", "D66", "GroenLinks", "SP", "PartijvandeArbeid", "PartijvoordeDieren", "VIJFTIGPLUS", "BIJ1", "Volt", "NIDA", "Piratenpartij", "Splinter", "BoerBurgerBeweging", "JezusLeeft", "TrotsopNederland", "UBuntuConnectedFront", "Lijst30"],
+        0 : ["CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "PartijVoorDeDieren", "VIJFTIGPLUS", "BIJ1", "Volt", "NIDA", "Piratenpartij", "Splinter", "BBB", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "Lijst30"],
         1 : ["Oprecht"],
-        2 : ["PVV", "VVD", "ChristenUnie", "SGP", "Forum voor Democratie", "JA21", "Code Oranje", "Libertaire Partij", "JONG", "NLBeter", "Lijst Henk Krol"],
+        2 : ["PVV", "VVD", "ChristenUnie", "SGP", "ForumVoorDemocratie", "JA21", "CodeOranje", "LibertairePartij", "JONG", "NLBeter", "LijstHenkKrol"],
     },
     {
-        0 : ["D66", "GroenLinks", "SP", "PartijvandeArbeid", "ChristenUnie", "PartijvoordeDieren", "DENK", "NIDA", "Piratenpartij", "NLBeter", "UBuntuConnectedFront"],
+        0 : ["D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "DENK", "NIDA", "Piratenpartij", "NLBeter", "UBuntuConnectedFront"],
         1 : [],
-        2 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumvoorDemocratie", "JA21", "JONG", "Splinter", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        2 : ["VVD", "PVV", "CDA", "VIJFTIGPLUS", "SGP", "ForumVoorDemocratie", "JA21", "JONG", "Splinter", "BBB", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
     },
     {
-        0 : ["PartijvoordeDieren", "SGP", "DENK", "ForumvoorDemocratie", "Code Oranje", "NIDA", "Piratenpartij", "BoerBurgerBeweging", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsopNederland", "Lijst30"],
+        0 : ["PartijVoorDeDieren", "SGP", "DENK", "ForumVoorDemocratie", "CodeOranje", "NIDA", "Piratenpartij", "BBB", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "Lijst30"],
         1 : ["JA21"],
-        2 : ["VVD", "PVV", "CDA", "D66", "PartijvandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "BIJ1", "Volt", "JONG", "NLBeter", "UBuntuConnectedFront"],
+        2 : ["VVD", "PVV", "CDA", "D66", "PartijVandeArbeid", "ChristenUnie", "VIJFTIGPLUS", "BIJ1", "Volt", "JONG", "NLBeter", "UBuntuConnectedFront"],
     }
 ]
 
@@ -818,23 +817,89 @@ var extraOnderwerpenContainer = document.querySelector(".extraOnderwerpenContain
 
 nextButton.addEventListener("click", function(){ 
     var checkboxes = document.querySelectorAll('.checked');
+    var title = document.createElement("h1");
+   
+    title.classList.add("title");
+    title.innerHTML = "Je resultaat voor de verkiezingen"
+
+    main.appendChild(title)
 
     for(key of checkboxes) {
         if(key.classList.contains("checkedCheckboxes")) {
             arrayOfCheckedCheckboxex.push(key)
         }
     }
-
     extraOnderwerpenContainer.style.display = "none"
 
-    for(key of allePartijen) {
-        console.log(key)
+
+    var endResult = {};
+
+    for(item of arrayOfCheckedCheckboxex) {
+        for(key of allePartijen) {
+
+            if(key == item.value) {
+                
+                if(endResult[key] == undefined || endResult == null) {
+                    endResult[key] = 1;
+                } else {
+                    endResult[key]++;
+                }
+            }
+
+        }
     }
 
-    console.log('')
+    endResultLength = [];
 
-    for(key of arrayOfCheckedCheckboxex) {
-        console.log(key.value)
+    for(key in endResult) {
+        endResultLength.push(key)
     }
+
+    var mainElement = document.createElement("div")
+    mainElement.setAttribute("id", "mainElement")
+    main.appendChild(mainElement)
+
+    
+    var eindPartij = document.createElement("div"); 
+    eindPartij.classList.add("eindPartij")
+    var barElement = document.createElement("div"); 
+    barElement.classList.add("barElement");
+    var precentages = document.createElement("div"); 
+    precentages.classList.add("precentages");
+
+    
+    mainElement.appendChild(eindPartij)
+    mainElement.appendChild(barElement)
+    mainElement.appendChild(precentages)
+
+    var keyValues = []
+
+    for(key in endResult) {
+        keyValues.push(endResult[key] * 4)
+    }
+
+    for(i = 0; i < endResultLength.length; i++) {
+        var gekozenPartijen = document.createElement("p");
+        var barVoorPartijen = document.createElement("div");
+        var insideBar = document.createElement("div");
+        var precentage = document.createElement("p");
+
+        barVoorPartijen.classList.add("barVoorPartijen")
+        gekozenPartijen.classList.add("pVoorPartijen");
+        insideBar.classList.add("insideBar");
+        precentage.classList.add("precentage");
+
+        gekozenPartijen.innerText = endResultLength[i];
+        insideBar.style.width = keyValues[i] + "px"
+        precentage.innerText = keyValues[i] + " %";
+
+        barVoorPartijen.appendChild(insideBar)
+        eindPartij.appendChild(gekozenPartijen)
+        barElement.appendChild(barVoorPartijen)
+        precentages.appendChild(precentage)
+    }
+
+    
+
 
 })

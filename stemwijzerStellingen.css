@@ -450,4 +450,72 @@ main .buttonsContainer .skip:hover {
 
 #bold {
   font-weight: bold;
+}
+
+.title {
+  width: 900px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+#mainElement {
+  width: 900px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+}
+#mainElement .barElement, #mainElement .eindPartij, #mainElement .precentages {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 50px;
+}
+#mainElement .precentages {
+  margin: 0px;
+  margin-top: 50px;
+}
+#mainElement .precentage {
+  margin-top: 29px;
+  margin-bottom: 29px;
+  width: 50px;
+  font-size: 14px;
+  font-weight: bold;
+}
+#mainElement .eindPartij {
+  margin-left: 50px;
+}
+#mainElement .pVoorPartijen {
+  color: black;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 27px;
+  margin-bottom: 27px;
+}
+#mainElement .barVoorPartijen {
+  background-color: #233fff;
+  width: 400px;
+  height: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+}
+#mainElement .barVoorPartijen .insideBar {
+  background-color: white;
+  margin-left: 10px;
+  height: 6px;
+  width: 4px;
+  border-radius: 25px;
 }/*# sourceMappingURL=stemwijzerStellingen.css.map */
