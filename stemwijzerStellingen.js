@@ -123,7 +123,7 @@ const stellingen = [
 
 var allePartijenArray = ["VVD", "PVV", "CDA", "D66", "GroenLinks", "SP", "PartijVandeArbeid", "ChristenUnie", "PartijVoorDeDieren", "VIJFTIGPLUS", "SGP", "DENK", "ForumVoorDemocratie", "BIJ1", "JA21", "CodeOranje", "Volt", "NIDA", "Piratenpartij", "JONG", "Splinter", "NLBeter", "LijstHenkKrol", "Oprecht", "JezusLeeft", "TrotsOpNederland", "UBuntuConnectedFront", "BBB"]
 
-var zittendePartijenArray = ["checkbox0", "checkbox3", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox12", "checkbox8", "checkbox7", "checkbox16", "checkbox14", "checkbox10", "checkbox11", "checkbox9", "checkbox13"]
+var grotePartijen = ["checkbox0", "checkbox3", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox12", "checkbox8"]
 
 // Eens - Geen van beiden - 2 
 var partijenMening = [
@@ -379,7 +379,7 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     })
 
     var labelInzittendePartijen = document.createElement("label");
-    labelInzittendePartijen.innerText = "Zittende partijen"
+    labelInzittendePartijen.innerText = "Grote partijen"
     labelInzittendePartijen.setAttribute("for", "inzittendePartijen")
     labelInzittendePartijen.setAttribute("class", "label")
     container1.appendChild(labelInzittendePartijen)
@@ -393,7 +393,7 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
 
 
     var labelAllePartijenSelectie = document.createElement("label");
-    labelAllePartijenSelectie.innerText = "Alle partijen"
+    labelAllePartijenSelectie.innerText = "Seculiere partijen"
     labelAllePartijenSelectie.setAttribute("for", "allePartijenSelectie")
     labelAllePartijenSelectie.setAttribute("class", "label")
     container2.appendChild(labelAllePartijenSelectie)
@@ -422,14 +422,14 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
             item.classList.remove("checkedCheckboxes")
         }
         for(item of checkboxes) {
-            for(i = 0; i < zittendePartijenArray.length; i++) {
-                if(item.id == zittendePartijenArray[i]) {
+            for(i = 0; i < grotePartijen.length; i++) {
+                if(item.id == grotePartijen[i]) {
                     item.checked = true; 
                     item.classList.add("checkedCheckboxes")
                 } 
             }
         }
-        checkedAmount.innerText = zittendePartijenArray.length;
+        checkedAmount.innerText = grotePartijen.length;
         allePartijenSelectie.checked = false;
     }
 
@@ -465,7 +465,7 @@ function checkForChanges(currentCheckBox) {
     if(currentCheckBox.checked) {
         currentCheckBox.setAttribute("class", "checked checkedCheckboxes")
         if(radio2.checked == true) {
-            checkCounterVar = Number(zittendePartijenArray.length);
+            checkCounterVar = Number(grotePartijen.length);
         } 
         checkCounterVar += 1;
     } else {
@@ -764,6 +764,11 @@ skipButton.onclick = function () {
 // FUNCTION FOR LEFT ARROW BUTTON 
 
 leftArrowLink.onclick = function () {
+
+    if (clickCounter == 0) {
+        leftArrowLink.href = '/Challenge-Front-end/stemwijzer.html';
+    }
+
     Number(clickCounter -1)
 
     if(clickCounter >= 2 && clickCounter <= 31) {
@@ -806,10 +811,6 @@ leftArrowLink.onclick = function () {
     if (clickCounter == 1) {
         eersteStelling(0);
         clickCounter = 0;
-    }
-
-    if (clickCounter == 0) {
-        leftArrowLink.href = '/Challenge-Front-end/stemwijzer.html';
     }
 }
 
