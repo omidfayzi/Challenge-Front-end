@@ -125,6 +125,8 @@ var allePartijenArray = ["VVD", "PVV", "CDA", "D66", "GroenLinks", "SP", "Partij
 
 var grotePartijen = ["checkbox0", "checkbox3", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox12", "checkbox8"]
 
+var seculierePartijen = ["checkbox0", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox10", "checkbox12",  "checkbox11", "checkbox12", "checkbox13",  "checkbox14",  "checkbox16",  "checkbox18", "checkbox26",]
+
 // Eens - Geen van beiden - 2 
 var partijenMening = [
     {
@@ -408,11 +410,15 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
     
     allePartijenSelectie.onchange = function radioCheck1() {
         for(item of checkboxes) {
-            item.checked = true;
-            item.classList.add("checkedCheckboxes")
+            for(i = 0; i < seculierePartijen.length; i++) {
+                if(item.id == seculierePartijen[i]) {
+                    item.checked = true; 
+                    item.classList.add("checkedCheckboxes")
+                } 
+            }
         }
 
-        checkedAmount.innerText = 28;
+        checkedAmount.innerText = seculierePartijen.length;
         inzittendePartijen.checked = false;
     }
 
