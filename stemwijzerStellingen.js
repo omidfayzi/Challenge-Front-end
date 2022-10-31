@@ -127,6 +127,8 @@ var grotePartijen = ["checkbox0", "checkbox3", "checkbox1", "checkbox2", "checkb
 
 var seculierePartijen = ["checkbox0", "checkbox1", "checkbox2", "checkbox5", "checkbox6", "checkbox4", "checkbox10", "checkbox12",  "checkbox11", "checkbox12", "checkbox13",  "checkbox14",  "checkbox16",  "checkbox18", "checkbox26",]
 
+var extraSubjects = ["Vaccinatiebewijs", "Defensiebudget", "Gratis kinderopvang", "Nederland uit EU", "Rekeningrijden", "Vuurwerk", "Vleesbelasting", "Publieke omroep", "Zorgfonds", "Gezichtsbedekkende kleding", "Volkshuisvesting", "Btw op kunst en cultuur", "Kerncentrale", "Woningen op landbouwgrond", "Belastingvoordeel", "huishoudens", "Excuses slavenhandel", "Correctief referendum", "Inkomen leraren", "Gevangenisstraffen", "Vliegbelasting", "Inburgering op locatie", "Legalisering softdrugs", "Nederlandstalig hoger", "onderwijs", "Voltooid leven", "Koppeling minimumloon en", "bijstand", "Sociale huurwoningen", "Boerenbedrijven", "Middenschool", "Vluchtelingen opnemen", "Mondkapjesplicht"]
+
 // Eens - Geen van beiden - 2 
 var partijenMening = [
     {
@@ -291,10 +293,14 @@ var partijenMening = [
 
 var extraStappen = [
     {
+        titel : 'Zijn er onderwerpen die je belangrijk vindt?',
+        beschrijving : 'stellingen geselecteerd',
+    },
+    {
         titel : 'Welke partijen wil je meenemen in het resultaat?',
         beschrijving : 'Kies alle partijen, alleen de partijen die nu al in de Tweede Kamer zitten, of maak zelf een selectie.',
         aantal : 'Selecteer minimaal 3 partijen'
-    },
+    }
 ]
 
 // ANTWOORDEN VAN DE GEBRUIKER
@@ -340,16 +346,102 @@ function eersteStelling (stellingNummer) {
 } 
 eersteStelling(0);
 
+// FUNCTION FOR DISPLAYING EXTRA SUBJECTS 
+function displayExtraOnderwerpen(Array, displayAntwoord, extraStappenTitel, extraStappenBeschrijving, displayOfP,) {
 
-// FUNCTION FOR DISPLAYING STELLINGEN 
-function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappenBeschrijving, displayOfP) {
+    // HEAD OF THE LAST PART
+    extraOnderwerpenContainer.style.display = displayAntwoord;
+    extraOnderwerpenTitel.innerText = extraStappenTitel;
+    extraOnderwerpenBeschrijving.innerHTML =  extraStappenBeschrijving;
+    geselecteerdePartijen.innerHTML = '<span id="checkedAmount">0</span> van de <span id="bold">33</span>'
+    checkCounter.style.display = displayOfP;
+
+    // MAIN CONTENT OF THE LAST PART 
+    var radioContainer = document.createElement("div");
+    radioContainer.setAttribute("class", "buttonContainer")
+    extraOnderwerpenMainContent.appendChild(radioContainer);
+
+    var selectAll = document.createElement("div");
+    selectAll.setAttribute("class", "selectAll container1")
+    radioContainer.appendChild(selectAll);
+    
+    var unselectButtton = document.createElement("button");
+    unselectButtton.innerText = "Deselecteer alles"
+    unselectButtton.setAttribute("class", "unselectButtton");
+    unselectButtton.style.marginRight = "0px";
+    unselectButtton.style.marginLeft = "405px";
+
+    radioContainer.appendChild(unselectButtton)
+
+    unselectButtton.addEventListener("click", function() {
+        for(item of checkboxes) {
+            item.checked = false
+            item.classList.remove("checkedCheckboxes")
+        }
+    
+        inzittendePartijen.checked = false;
+        checkedAmount.innerText = 0;
+        arrayOfCheckedCheckboxex = []
+    })
+
+    var labelInzittendePartijen = document.createElement("label");
+    labelInzittendePartijen.innerText = "Alle onderwerpen"
+    labelInzittendePartijen.setAttribute("for", "inzittendePartijen")
+    labelInzittendePartijen.setAttribute("class", "label")
+    selectAll.appendChild(labelInzittendePartijen)
+
+    var inzittendePartijen = document.createElement("input");
+    inzittendePartijen.setAttribute("type", "radio")
+    inzittendePartijen.setAttribute("name", "inzittendePartijen")
+    inzittendePartijen.setAttribute("class", "typeRadio")
+    inzittendePartijen.setAttribute("id", "radio1")
+    selectAll.appendChild(inzittendePartijen)
+
+    inzittendePartijen.onchange = function radioCheck1() {
+        for(item of checkboxes) {
+            item.checked = true; 
+            item.classList.add("checkedCheckboxes")
+        }
+        checkedAmount.innerText = extraSubjects.length;
+    }
+
+
+    var maxNumber = stellingen.length - 2;
+    checkCounterVar = 0;
+
+    for(i = 0; i < maxNumber; i++) {
+        var divElement = document.createElement('div');
+        var checkBoxElement = document.createElement('input');
+        var checkboxes = document.querySelectorAll('.checked');
+
+        checkBoxElement.setAttribute('type', 'checkbox');
+        checkBoxElement.setAttribute('id', 'checkbox' + i);
+        checkBoxElement.setAttribute('value', extraSubjects[i])
+        checkBoxElement.setAttribute('onchange', 'checkForChanges(this)');
+        checkBoxElement.classList.add('checked');
+
+        checkCounter.innerHTML = `${checkCounterVar}`;
+
+        divElement.innerText = extraSubjects[i];
+        divElement.classList.add('stellingKop');
+        divElement.setAttribute('id', 'div' + i)
+
+        divElement.appendChild(checkBoxElement);
+        extraOnderwerpenMainContent.appendChild(divElement);
+    } 
+}
+
+// FUNCTION FOR DISPLAYING RESULT  
+function displayResults(Array, displayAntwoord, extraStappenTitel, extraStappenBeschrijving, displayOfP,) {
+
+    // HEAD OF THE LAST PART
     extraOnderwerpenContainer.style.display = displayAntwoord;
     extraOnderwerpenTitel.innerText = extraStappenTitel;
     extraOnderwerpenBeschrijving.innerHTML =  extraStappenBeschrijving;
     geselecteerdePartijen.innerHTML = '<span id="checkedAmount">0</span> van de <span id="bold">28</span>'
     checkCounter.style.display = displayOfP;
 
-
+    // MAIN CONTENT OF THE LAST PART 
     var radioContainer = document.createElement("div");
     radioContainer.setAttribute("class", "buttonContainer")
     extraOnderwerpenMainContent.appendChild(radioContainer);
@@ -466,6 +558,7 @@ function displayResults (Array, displayAntwoord, extraStappenTitel, extraStappen
 }
 
 
+
 function checkForChanges(currentCheckBox) {
     var radio2 = document.getElementById("radio2");
     if(currentCheckBox.checked) {
@@ -493,6 +586,225 @@ function displayStelling (clickCounter, buttonValue, thisButton, style) {
 
     main.style.display = style;
 } 
+
+// FUNCTION FOR EXTRA ONDERWERPEN 
+
+function extraOnderwerpen(thisEvent) {  
+    var buttonValue = thisEvent.target.value;
+
+    main_content.style.display = 'none';
+    buttonsContainer.style.display = 'none';
+    displayExtraOnderwerpen ('', 'block', extraStappen[0].titel, extraStappen[0].beschrijving, 'none');
+}
+
+
+function resultCalculation(thisEvent) {
+        
+        var buttonValue = thisEvent.target.value;
+        antwoorden.push(buttonValue);
+
+        main_content.style.display = 'none';
+        buttonsContainer.style.display = 'none';
+        displayResults ('', 'block', extraStappen[1].titel, extraStappen[1].beschrijving, 'none');
+
+    
+        function calculation() {
+
+            var reversed = selectieVanPartijen.reverse();
+
+            for(i = 0; i < antwoorden.length; i++) {
+                randomNumber = antwoorden[i]
+            }
+
+            for(key of partijenMening) {
+                reversed.push(key[randomNumber])
+            }
+
+            // EACH ITEM WILL BE PUSHED INSIDE THE allePartijen
+            
+            var array0 = reversed[0]
+            var array1 = reversed[1]
+
+            for(i = 0; i < array0.length; i++) {
+                allePartijen.push(array0[i])
+            }
+
+            var array1 = reversed[1]
+
+            for(i = 0; i < array1.length; i++) {
+                allePartijen.push(array1[i])
+            }
+
+            var array2 = reversed[2]
+
+            for(i = 0; i < array2.length; i++) {
+                allePartijen.push(array2[i])
+            }
+
+            var array3 = reversed[3]
+
+            for(i = 0; i < array3.length; i++) {
+                allePartijen.push(array3[i])
+            }
+
+            var array4 = reversed[4]
+
+            for(i = 0; i < array4.length; i++) {
+                allePartijen.push(array4[i])
+            }
+
+            var array5 = reversed[5]
+
+            for(i = 0; i < array5.length; i++) {
+                allePartijen.push(array5[i])
+            }
+
+            var array6 = reversed[6]
+
+            for(i = 0; i < array6.length; i++) {
+                allePartijen.push(array6[i])
+            }
+
+            var array7 = reversed[7]
+
+            for(i = 0; i < array7.length; i++) {
+                allePartijen.push(array7[i])
+            }
+
+            var array8 = reversed[8]
+
+            for(i = 0; i < array8.length; i++) {
+                allePartijen.push(array8[i])
+            }
+
+            var array9 = reversed[9]
+
+            for(i = 0; i < array9.length; i++) {
+                allePartijen.push(array9[i])
+            }
+
+            var array10 = reversed[10]
+
+            for(i = 0; i < array10.length; i++) {
+                allePartijen.push(array10[i])
+            }
+
+            var array11 = reversed[11]
+
+            for(i = 0; i < array11.length; i++) {
+                allePartijen.push(array11[i])
+            }
+
+            var array12 = reversed[12]
+
+            for(i = 0; i < array12.length; i++) {
+                allePartijen.push(array12[i])
+            }
+
+            var array13 = reversed[13]
+
+            for(i = 0; i < array13.length; i++) {
+                allePartijen.push(array13[i])
+            }
+
+            var array14 = reversed[14]
+
+            for(i = 0; i < array14.length; i++) {
+                allePartijen.push(array14[i])
+            }
+
+            var array15 = reversed[15]
+
+            for(i = 0; i < array15.length; i++) {
+                allePartijen.push(array15[i])
+            }
+
+            var array16 = reversed[16]
+
+            for(i = 0; i < array16.length; i++) {
+                allePartijen.push(array16[i])
+            }
+
+            var array17 = reversed[17]
+
+            for(i = 0; i < array17.length; i++) {
+                allePartijen.push(array17[i])
+            }
+
+            var array18 = reversed[18]
+
+            for(i = 0; i < array18.length; i++) {
+                allePartijen.push(array18[i])
+            }
+
+            var array19 = reversed[19]
+
+            for(i = 0; i < array19.length; i++) {
+                allePartijen.push(array19[i])
+            }
+
+            var array20 = reversed[20]
+
+            for(i = 0; i < array20.length; i++) {
+                allePartijen.push(array20[i])
+            }
+
+            var array21 = reversed[21]
+
+            for(i = 0; i < array21.length; i++) {
+                allePartijen.push(array21[i])
+            }
+
+            var array22 = reversed[22]
+
+            for(i = 0; i < array22.length; i++) {
+                allePartijen.push(array22[i])
+            }
+
+            var array23 = reversed[23]
+
+            for(i = 0; i < array23.length; i++) {
+                allePartijen.push(array23[i])
+            }
+
+            var array24 = reversed[24]
+
+            for(i = 0; i < array24.length; i++) {
+                allePartijen.push(array24[i])
+            }
+
+            var array25 = reversed[25]
+
+            for(i = 0; i < array25.length; i++) {
+                allePartijen.push(array25[i])
+            }
+
+            var array26 = reversed[26]
+
+            for(i = 0; i < array26.length; i++) {
+                allePartijen.push(array26[i])
+            }
+
+            var array27 = reversed[27]
+
+            for(i = 0; i < array27.length; i++) {
+                allePartijen.push(array27[i])
+            }
+
+            var array28 = reversed[28]
+
+            for(i = 0; i < array28.length; i++) {
+                allePartijen.push(array28[i])
+            }
+
+            var array29 = reversed[29]
+
+            for(i = 0; i < array29.length; i++) {
+                allePartijen.push(array29[i])
+            }
+        }
+        calculation()
+}
 
 
 // FUNCTION FOR EACAH PRIMARY BUTTON 
@@ -525,217 +837,17 @@ primaryButtons.forEach(function displayItem (item, index, object) {
             // CALCULATION OF CLICK COUNT
             clickCounter ++;
         }   else if (clickCounter >= 30 ) {
+            console.log(clickCounter)
             topBar.style.width = 100 + '%';
             currentQuestionNumber.innerText = 30;
 
-            var buttonValue = e.target.value;
-            antwoorden.push(buttonValue);
-
-            main_content.style.display = 'none';
-            buttonsContainer.style.display = 'none';
-            displayResults ('', 'block', extraStappen[0].titel, extraStappen[0].beschrijving, 'none');
-
-           
-            function calculation() {
-
-                var reversed = selectieVanPartijen.reverse();
-    
-                for(i = 0; i < antwoorden.length; i++) {
-                    randomNumber = antwoorden[i]
-                }
-    
-                for(key of partijenMening) {
-                    reversed.push(key[randomNumber])
-                }
-
-                // EACH ITEM WILL BE PUSHED INSIDE THE allePartijen
-                
-                var array0 = reversed[0]
-                var array1 = reversed[1]
-
-                for(i = 0; i < array0.length; i++) {
-                    allePartijen.push(array0[i])
-                }
-
-                var array1 = reversed[1]
-
-                for(i = 0; i < array1.length; i++) {
-                    allePartijen.push(array1[i])
-                }
-
-                var array2 = reversed[2]
-
-                for(i = 0; i < array2.length; i++) {
-                    allePartijen.push(array2[i])
-                }
-
-                var array3 = reversed[3]
-
-                for(i = 0; i < array3.length; i++) {
-                    allePartijen.push(array3[i])
-                }
-
-                var array4 = reversed[4]
-
-                for(i = 0; i < array4.length; i++) {
-                    allePartijen.push(array4[i])
-                }
-
-                var array5 = reversed[5]
-
-                for(i = 0; i < array5.length; i++) {
-                    allePartijen.push(array5[i])
-                }
-
-                var array6 = reversed[6]
-
-                for(i = 0; i < array6.length; i++) {
-                    allePartijen.push(array6[i])
-                }
-
-                var array7 = reversed[7]
-
-                for(i = 0; i < array7.length; i++) {
-                    allePartijen.push(array7[i])
-                }
-
-                var array8 = reversed[8]
-
-                for(i = 0; i < array8.length; i++) {
-                    allePartijen.push(array8[i])
-                }
-
-                var array9 = reversed[9]
-
-                for(i = 0; i < array9.length; i++) {
-                    allePartijen.push(array9[i])
-                }
-
-                var array10 = reversed[10]
-
-                for(i = 0; i < array10.length; i++) {
-                    allePartijen.push(array10[i])
-                }
-
-                var array11 = reversed[11]
-
-                for(i = 0; i < array11.length; i++) {
-                    allePartijen.push(array11[i])
-                }
-
-                var array12 = reversed[12]
-
-                for(i = 0; i < array12.length; i++) {
-                    allePartijen.push(array12[i])
-                }
-
-                var array13 = reversed[13]
-
-                for(i = 0; i < array13.length; i++) {
-                    allePartijen.push(array13[i])
-                }
-
-                var array14 = reversed[14]
-
-                for(i = 0; i < array14.length; i++) {
-                    allePartijen.push(array14[i])
-                }
-
-                var array15 = reversed[15]
-
-                for(i = 0; i < array15.length; i++) {
-                    allePartijen.push(array15[i])
-                }
-
-                var array16 = reversed[16]
-
-                for(i = 0; i < array16.length; i++) {
-                    allePartijen.push(array16[i])
-                }
-
-                var array17 = reversed[17]
-
-                for(i = 0; i < array17.length; i++) {
-                    allePartijen.push(array17[i])
-                }
-
-                var array18 = reversed[18]
-
-                for(i = 0; i < array18.length; i++) {
-                    allePartijen.push(array18[i])
-                }
-
-                var array19 = reversed[19]
-
-                for(i = 0; i < array19.length; i++) {
-                    allePartijen.push(array19[i])
-                }
-
-                var array20 = reversed[20]
-
-                for(i = 0; i < array20.length; i++) {
-                    allePartijen.push(array20[i])
-                }
-
-                var array21 = reversed[21]
-
-                for(i = 0; i < array21.length; i++) {
-                    allePartijen.push(array21[i])
-                }
-
-                var array22 = reversed[22]
-
-                for(i = 0; i < array22.length; i++) {
-                    allePartijen.push(array22[i])
-                }
-
-                var array23 = reversed[23]
-
-                for(i = 0; i < array23.length; i++) {
-                    allePartijen.push(array23[i])
-                }
-
-                var array24 = reversed[24]
-
-                for(i = 0; i < array24.length; i++) {
-                    allePartijen.push(array24[i])
-                }
-
-                var array25 = reversed[25]
-
-                for(i = 0; i < array25.length; i++) {
-                    allePartijen.push(array25[i])
-                }
-
-                var array26 = reversed[26]
-
-                for(i = 0; i < array26.length; i++) {
-                    allePartijen.push(array26[i])
-                }
-
-                var array27 = reversed[27]
-
-                for(i = 0; i < array27.length; i++) {
-                    allePartijen.push(array27[i])
-                }
-
-                var array28 = reversed[28]
-
-                for(i = 0; i < array28.length; i++) {
-                    allePartijen.push(array28[i])
-                }
-
-                var array29 = reversed[29]
-
-                for(i = 0; i < array29.length; i++) {
-                    allePartijen.push(array29[i])
-                }
-            }
-            calculation()
-            
+            if(clickCounter == 30) {
+                extraOnderwerpen(e)
+            } 
         }
-        
     }
+
+    clickCounter + 1;
 })
 
 
@@ -822,91 +934,101 @@ leftArrowLink.onclick = function () {
 
 var extraOnderwerpenContainer = document.querySelector(".extraOnderwerpenContainer");
 
-nextButton.addEventListener("click", function(){ 
-    var checkboxes = document.querySelectorAll('.checked');
-    var title = document.createElement("h1");
-   
-    title.classList.add("title");
-    title.innerHTML = "Je resultaat voor de verkiezingen"
+nextButton.addEventListener("click", function(e){  
+    console.log(clickCounter)
 
-    main.appendChild(title)
+    resultCalculation(e)
 
-    for(key of checkboxes) {
-        if(key.classList.contains("checkedCheckboxes")) {
-            arrayOfCheckedCheckboxex.push(key)
-        }
-    }
-    extraOnderwerpenContainer.style.display = "none"
+    clickCounter++; 
 
+    if(clickCounter == 35) {
 
-    var endResult = {};
+        var checkboxes = document.querySelectorAll('.checked');
+        var title = document.createElement("h1");
+        var logo = document.getElementById("stemwijzerLogo");
 
-    for(item of arrayOfCheckedCheckboxex) {
-        for(key of allePartijen) {
+        logo.style.left = "0px"
+        leftArrowIcon.style.display = "none";
+    
+        title.classList.add("title");
+        title.innerHTML = "Je resultaat voor de verkiezingen"
 
-            if(key == item.value) {
-                
-                if(endResult[key] == undefined || endResult == null) {
-                    endResult[key] = 1;
-                } else {
-                    endResult[key]++;
-                }
+        main.appendChild(title)
+
+        for(key of checkboxes) {
+            if(key.classList.contains("checkedCheckboxes")) {
+                arrayOfCheckedCheckboxex.push(key)
             }
+        }
+        extraOnderwerpenContainer.style.display = "none"
 
+
+        var endResult = {};
+
+        for(item of arrayOfCheckedCheckboxex) {
+            for(key of allePartijen) {
+
+                if(key == item.value) {
+                    
+                    if(endResult[key] == undefined || endResult == null) {
+                        endResult[key] = 1;
+                    } else {
+                        endResult[key]++;
+                    }
+                }
+
+            }
+        }
+
+        endResultLength = [];
+
+        for(key in endResult) {
+            endResultLength.push(key)
+        }
+
+        var mainElement = document.createElement("div")
+        mainElement.setAttribute("id", "mainElement")
+        main.appendChild(mainElement)
+
+        
+        var eindPartij = document.createElement("div"); 
+        eindPartij.classList.add("eindPartij")
+        var barElement = document.createElement("div"); 
+        barElement.classList.add("barElement");
+        var precentages = document.createElement("div"); 
+        precentages.classList.add("precentages");
+
+        
+        mainElement.appendChild(eindPartij)
+        mainElement.appendChild(barElement)
+        mainElement.appendChild(precentages)
+
+        var keyValues = []
+
+        for(key in endResult) {
+            keyValues.push(endResult[key] * 4)
+        }
+
+        for(i = 0; i < endResultLength.length; i++) {
+            var gekozenPartijen = document.createElement("p");
+            var barVoorPartijen = document.createElement("div");
+            var insideBar = document.createElement("div");
+            var precentage = document.createElement("p");
+
+            barVoorPartijen.classList.add("barVoorPartijen")
+            gekozenPartijen.classList.add("pVoorPartijen");
+            insideBar.classList.add("insideBar");
+            precentage.classList.add("precentage");
+
+            gekozenPartijen.innerText = endResultLength[i];
+            insideBar.style.width = keyValues[i] + "px"
+            precentage.innerText = keyValues[i] + " %";
+
+            barVoorPartijen.appendChild(insideBar)
+            eindPartij.appendChild(gekozenPartijen)
+            barElement.appendChild(barVoorPartijen)
+            precentages.appendChild(precentage)
         }
     }
-
-    endResultLength = [];
-
-    for(key in endResult) {
-        endResultLength.push(key)
-    }
-
-    var mainElement = document.createElement("div")
-    mainElement.setAttribute("id", "mainElement")
-    main.appendChild(mainElement)
-
-    
-    var eindPartij = document.createElement("div"); 
-    eindPartij.classList.add("eindPartij")
-    var barElement = document.createElement("div"); 
-    barElement.classList.add("barElement");
-    var precentages = document.createElement("div"); 
-    precentages.classList.add("precentages");
-
-    
-    mainElement.appendChild(eindPartij)
-    mainElement.appendChild(barElement)
-    mainElement.appendChild(precentages)
-
-    var keyValues = []
-
-    for(key in endResult) {
-        keyValues.push(endResult[key] * 4)
-    }
-
-    for(i = 0; i < endResultLength.length; i++) {
-        var gekozenPartijen = document.createElement("p");
-        var barVoorPartijen = document.createElement("div");
-        var insideBar = document.createElement("div");
-        var precentage = document.createElement("p");
-
-        barVoorPartijen.classList.add("barVoorPartijen")
-        gekozenPartijen.classList.add("pVoorPartijen");
-        insideBar.classList.add("insideBar");
-        precentage.classList.add("precentage");
-
-        gekozenPartijen.innerText = endResultLength[i];
-        insideBar.style.width = keyValues[i] + "px"
-        precentage.innerText = keyValues[i] + " %";
-
-        barVoorPartijen.appendChild(insideBar)
-        eindPartij.appendChild(gekozenPartijen)
-        barElement.appendChild(barVoorPartijen)
-        precentages.appendChild(precentage)
-    }
-
-    
-
 
 })
